@@ -1,0 +1,42 @@
+# Constrói a imagem Docker do dashboard (FastAPI) e publica no registro do GitHub.
+#   docker run -d -p 8080:8080 ghcr.io/univagoverwatchs/sentinela-dashboard:latest
+name: Imagem Docker do dashboard
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "Sentinela/Dockerfile"
+      - "Sentinela/src/painel/**"
+      - "Sentinela/src/dashboard/**"
+      - ".github/workflows/docker.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  imagem:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: docker/build-push-action@v6
+        with:
+          context: Sentinela
+          push: true
+          tags: ghcr.io/univagoverwatchs/sentinela-dashboard:latest
+
+      - name: Testa a imagem publicada
+        run: |
+          docker run -d -p 8080:8080 --name painel ghcr.io/univagoverwatchs/sentinela-dashboard:latest
+          sleep 5
+          curl -fsS http://localhost:8080/health
+          curl -fsS -o /dev/null -w "painel: HTTP %{http_code}\n" http://localhost:8080/
