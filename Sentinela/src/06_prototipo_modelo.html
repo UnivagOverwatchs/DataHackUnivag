@@ -67,6 +67,14 @@ svg text { fill: var(--text-2); font-size: 12px; }
 .nota { color: var(--text-3); font-size: 12px; margin: 8px 0 0; }
 .aviso { color: var(--warn); font-weight: 600; }
 #dica { position: fixed; pointer-events: none; background: var(--text); color: var(--page); padding: 5px 8px; border-radius: 4px; font-size: 12px; display: none; z-index: 5; max-width: 260px; }
+@media print {
+  @page { size: A4 landscape; margin: 10mm; }
+  body { background: #fff; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  nav, #dica { display: none; }
+  section { display: block; break-after: page; }
+  section:last-of-type { break-after: auto; }
+  .painel, .resposta, .cartao { break-inside: avoid; }
+}
 </style>
 </head>
 <body>
