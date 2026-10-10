@@ -1,0 +1,466 @@
+base,arquivo,coluna,linhas_mt,vazios,pct_vazios,distintos,tipo,fora_do_tipo,com_aspas,exemplo
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2021.CSV,NU_ANO_CENSO,12278,0,0.0,1,inteiro,,0,2021
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2021.CSV,CO_UF,12278,0,0.0,1,código (guardar como texto),,0,51
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2021.CSV,CO_MUNICIPIO,12278,0,0.0,94,código (guardar como texto),,0,5100102
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2021.CSV,TP_CATEGORIA_ADMINISTRATIVA,12278,0,0.0,5,categoria codificada,,0,4
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2021.CSV,TP_REDE,12278,0,0.0,2,categoria codificada,,0,2
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2021.CSV,CO_IES,12278,0,0.0,157,código (guardar como texto),,0,3840
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2021.CSV,NO_CURSO,12278,0,0.0,306,texto,,0,Administração
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2021.CSV,CO_CURSO,12278,0,0.0,2737,código (guardar como texto),,0,1210438
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2021.CSV,CO_CINE_ROTULO,12278,0,0.0,191,texto,,12278,"""0413A01"""
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2021.CSV,CO_CINE_AREA_GERAL,12278,0,0.0,10,código (guardar como texto),,0,04
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2021.CSV,TP_GRAU_ACADEMICO,12278,3,0.0,3,categoria codificada,,0,1
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2021.CSV,TP_MODALIDADE_ENSINO,12278,0,0.0,2,categoria codificada,,0,2
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2021.CSV,QT_VG_TOTAL,12278,0,0.0,225,inteiro,,0,0
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2021.CSV,QT_ING,12278,0,0.0,151,inteiro,,0,3
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2021.CSV,QT_MAT,12278,0,0.0,318,inteiro,,0,8
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2021.CSV,QT_CONC,12278,0,0.0,104,inteiro,,0,0
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2021.CSV,QT_ING_FIES,12278,0,0.0,17,inteiro,,0,0
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2021.CSV,QT_MAT_FIES,12278,0,0.0,55,inteiro,,0,0
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2021.CSV,QT_MAT_PROUNII,12278,0,0.0,54,inteiro,,0,0
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2021.CSV,QT_MAT_PROUNIP,12278,0,0.0,16,inteiro,,0,0
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2021.CSV,QT_SIT_TRANCADA,12278,0,0.0,140,inteiro,,0,0
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2021.CSV,QT_SIT_DESVINCULADO,12278,0,0.0,123,inteiro,,0,0
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2022.CSV,NU_ANO_CENSO,15059,0,0.0,1,inteiro,,0,2022
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2022.CSV,CO_UF,15059,0,0.0,1,código (guardar como texto),,0,51
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2022.CSV,CO_MUNICIPIO,15059,0,0.0,96,código (guardar como texto),,0,5100102
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2022.CSV,TP_CATEGORIA_ADMINISTRATIVA,15059,0,0.0,5,categoria codificada,,0,4
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2022.CSV,TP_REDE,15059,0,0.0,2,categoria codificada,,0,2
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2022.CSV,CO_IES,15059,0,0.0,165,código (guardar como texto),,0,3840
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2022.CSV,NO_CURSO,15059,0,0.0,339,texto,,0,Administração
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2022.CSV,CO_CURSO,15059,0,0.0,3234,código (guardar como texto),,0,1210438
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2022.CSV,CO_CINE_ROTULO,15059,0,0.0,198,texto,,15059,"""0413A01"""
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2022.CSV,CO_CINE_AREA_GERAL,15059,0,0.0,11,código (guardar como texto),,0,04
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2022.CSV,TP_GRAU_ACADEMICO,15059,0,0.0,4,categoria codificada,,0,1
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2022.CSV,TP_MODALIDADE_ENSINO,15059,0,0.0,2,categoria codificada,,0,2
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2022.CSV,QT_VG_TOTAL,15059,0,0.0,204,inteiro,,0,0
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2022.CSV,QT_ING,15059,0,0.0,181,inteiro,,0,0
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2022.CSV,QT_MAT,15059,0,0.0,317,inteiro,,0,5
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2022.CSV,QT_CONC,15059,0,0.0,94,inteiro,,0,0
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2022.CSV,QT_ING_FIES,15059,0,0.0,19,inteiro,,0,0
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2022.CSV,QT_MAT_FIES,15059,0,0.0,44,inteiro,,0,0
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2022.CSV,QT_MAT_PROUNII,15059,0,0.0,60,inteiro,,0,0
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2022.CSV,QT_MAT_PROUNIP,15059,0,0.0,18,inteiro,,0,0
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2022.CSV,QT_SIT_TRANCADA,15059,0,0.0,139,inteiro,,0,5
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2022.CSV,QT_SIT_DESVINCULADO,15059,0,0.0,140,inteiro,,0,0
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2023.CSV,NU_ANO_CENSO,17022,0,0.0,1,inteiro,,0,2023
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2023.CSV,CO_UF,17022,0,0.0,1,código (guardar como texto),,0,51
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2023.CSV,CO_MUNICIPIO,17022,0,0.0,93,código (guardar como texto),,0,5100102
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2023.CSV,TP_REDE,17022,0,0.0,2,categoria codificada,,0,2
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2023.CSV,TP_CATEGORIA_ADMINISTRATIVA,17022,0,0.0,5,categoria codificada,,0,4
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2023.CSV,CO_IES,17022,0,0.0,168,código (guardar como texto),,0,3840
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2023.CSV,NO_CURSO,17022,0,0.0,382,texto,,0,Administração
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2023.CSV,CO_CURSO,17022,0,0.0,3631,código (guardar como texto),,0,1210438
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2023.CSV,CO_CINE_ROTULO,17022,0,0.0,209,texto,,17022,"""0413A01"""
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2023.CSV,CO_CINE_AREA_GERAL,17022,0,0.0,11,código (guardar como texto),,0,04
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2023.CSV,TP_GRAU_ACADEMICO,17022,30,0.2,3,categoria codificada,,0,1
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2023.CSV,TP_MODALIDADE_ENSINO,17022,0,0.0,2,categoria codificada,,0,2
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2023.CSV,QT_VG_TOTAL,17022,0,0.0,211,inteiro,,0,0
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2023.CSV,QT_ING,17022,0,0.0,177,inteiro,,0,0
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2023.CSV,QT_MAT,17022,0,0.0,324,inteiro,,0,4
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2023.CSV,QT_CONC,17022,0,0.0,87,inteiro,,0,0
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2023.CSV,QT_ING_FIES,17022,0,0.0,25,inteiro,,0,0
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2023.CSV,QT_MAT_FIES,17022,0,0.0,60,inteiro,,0,0
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2023.CSV,QT_MAT_PROUNII,17022,0,0.0,26,inteiro,,0,0
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2023.CSV,QT_MAT_PROUNIP,17022,0,0.0,15,inteiro,,0,0
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2023.CSV,QT_SIT_TRANCADA,17022,0,0.0,137,inteiro,,0,6
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2023.CSV,QT_SIT_DESVINCULADO,17022,0,0.0,151,inteiro,,0,0
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2024.CSV,NU_ANO_CENSO,18315,0,0.0,1,inteiro,,0,2024
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2024.CSV,CO_UF,18315,0,0.0,1,código (guardar como texto),,0,51
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2024.CSV,CO_MUNICIPIO,18315,0,0.0,104,código (guardar como texto),,0,5100102
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2024.CSV,TP_REDE,18315,0,0.0,2,categoria codificada,,0,2
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2024.CSV,TP_CATEGORIA_ADMINISTRATIVA,18315,0,0.0,5,categoria codificada,,0,4
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2024.CSV,CO_IES,18315,0,0.0,170,código (guardar como texto),,0,3840
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2024.CSV,NO_CURSO,18315,0,0.0,412,texto,,0,Administração
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2024.CSV,CO_CURSO,18315,0,0.0,3890,código (guardar como texto),,0,1210438
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2024.CSV,CO_CINE_ROTULO,18315,0,0.0,213,texto,,18315,"""0413A01"""
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2024.CSV,CO_CINE_AREA_GERAL,18315,0,0.0,11,código (guardar como texto),,0,04
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2024.CSV,TP_GRAU_ACADEMICO,18315,38,0.2,3,categoria codificada,,0,1
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2024.CSV,TP_MODALIDADE_ENSINO,18315,0,0.0,2,categoria codificada,,0,2
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2024.CSV,QT_VG_TOTAL,18315,0,0.0,215,inteiro,,0,0
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2024.CSV,QT_ING,18315,0,0.0,177,inteiro,,0,0
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2024.CSV,QT_MAT,18315,0,0.0,305,inteiro,,0,4
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2024.CSV,QT_CONC,18315,0,0.0,86,inteiro,,0,0
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2024.CSV,QT_ING_FIES,18315,0,0.0,18,inteiro,,0,0
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2024.CSV,QT_MAT_FIES,18315,0,0.0,37,inteiro,,0,0
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2024.CSV,QT_MAT_PROUNII,18315,0,0.0,48,inteiro,,0,0
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2024.CSV,QT_MAT_PROUNIP,18315,0,0.0,14,inteiro,,0,0
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2024.CSV,QT_SIT_TRANCADA,18315,0,0.0,157,inteiro,,0,6
+Censo cursos,MICRODADOS_CADASTRO_CURSOS_2024.CSV,QT_SIT_DESVINCULADO,18315,0,0.0,146,inteiro,,0,0
+CPC,CPC_2021.xlsx,Ano,155,0,0.0,1,inteiro,,0,2021
+CPC,CPC_2021.xlsx,Código da Área,155,0,0.0,28,código (guardar como texto),,0,2001
+CPC,CPC_2021.xlsx,Área de Avaliação,155,0,0.0,28,texto,,0,PEDAGOGIA (LICENCIATURA)
+CPC,CPC_2021.xlsx,Grau acadêmico,155,0,0.0,3,texto,,0,Licenciatura
+CPC,CPC_2021.xlsx,Código da IES,155,0,0.0,30,código (guardar como texto),,0,1
+CPC,CPC_2021.xlsx,Nome da IES,155,0,0.0,30,texto,,0,UNIVERSIDADE FEDERAL DE MATO GROSSO
+CPC,CPC_2021.xlsx,Sigla da IES,155,13,8.4,22,texto,,0,UFMT
+CPC,CPC_2021.xlsx,Organização Acadêmica,155,0,0.0,4,texto,,0,Universidade
+CPC,CPC_2021.xlsx,Categoria Administrativa,155,0,0.0,4,texto,,0,Pública Federal
+CPC,CPC_2021.xlsx,Código do Curso,155,0,0.0,155,código (guardar como texto),,0,6
+CPC,CPC_2021.xlsx,Modalidade de Ensino,155,0,0.0,2,texto,,0,Educação Presencial
+CPC,CPC_2021.xlsx,Código do Município,155,0,0.0,29,código (guardar como texto),,0,5103403
+CPC,CPC_2021.xlsx,Município do Curso,155,0,0.0,29,texto,,0,Cuiabá
+CPC,CPC_2021.xlsx,Sigla da UF,155,0,0.0,1,texto,,0,MT
+CPC,CPC_2021.xlsx,Nº de Concluintes Inscritos,155,0,0.0,59,inteiro,,0,18
+CPC,CPC_2021.xlsx,Nº de Concluintes Participantes,155,0,0.0,48,inteiro,,0,7
+CPC,CPC_2021.xlsx,Nota Bruta - FG,155,6,3.9,148,decimal,,0,51.185
+CPC,CPC_2021.xlsx,Nota Padronizada - FG,155,6,3.9,142,decimal,,0,5
+CPC,CPC_2021.xlsx,Nota Bruta - CE,155,6,3.9,149,decimal,,0,60.985
+CPC,CPC_2021.xlsx,Nota Padronizada - CE,155,6,3.9,148,decimal,,0,4.738
+CPC,CPC_2021.xlsx,Conceito Enade (Contínuo),155,6,3.9,145,decimal,,0,4.803
+CPC,CPC_2021.xlsx,Concluintes participantes com nota no Enem,155,0,0.0,37,inteiro,,0,7
+CPC,CPC_2021.xlsx,Proporção de concluintes participantes com nota no Enem,155,0,0.0,76,decimal,,0,1
+CPC,CPC_2021.xlsx,Nota Bruta - IDD,155,17,11.0,137,decimal,,0,4.285
+CPC,CPC_2021.xlsx,Nota Padronizada - IDD,155,17,11.0,131,decimal,,0,4.085
+CPC,CPC_2021.xlsx,Nota Bruta – Organização Didático-Pedagógica,155,4,2.6,141,decimal,,0,4.754
+CPC,CPC_2021.xlsx,Nota Padronizada - Organização Didático-Pedagógica,155,4,2.6,146,decimal,,0,0.641
+CPC,CPC_2021.xlsx,Nota Bruta – Infraestrutura e Instalações Físicas,155,4,2.6,139,decimal,,0,4.578
+CPC,CPC_2021.xlsx,Nota Padronizada - Infraestrutura e Instalações Físicas,155,4,2.6,145,decimal,,0,1.734
+CPC,CPC_2021.xlsx,Nota Bruta – Oportunidade de Ampliação da Formação,155,4,2.6,145,decimal,,0,4.368
+CPC,CPC_2021.xlsx,Nota Padronizada - Oportunidade de Ampliação da Formação,155,4,2.6,144,decimal,,0,1.916
+CPC,CPC_2021.xlsx,Nota Bruta - Mestres,155,0,0.0,65,decimal,,0,0.979
+CPC,CPC_2021.xlsx,Nota Padronizada - Mestres,155,0,0.0,85,decimal,,0,4.852
+CPC,CPC_2021.xlsx,Nota Bruta - Doutores,155,0,0.0,90,decimal,,0,0.857
+CPC,CPC_2021.xlsx,Nota Padronizada - Doutores,155,0,0.0,90,decimal,,0,4.285
+CPC,CPC_2021.xlsx,Nota Bruta – Regime de Trabalho,155,0,0.0,22,decimal,,0,1
+CPC,CPC_2021.xlsx,Nota Padronizada - Regime de Trabalho,155,0,0.0,23,decimal,,0,5
+CPC,CPC_2021.xlsx,CPC (Contínuo),155,6,3.9,146,decimal,,0,3.955
+CPC,CPC_2021.xlsx,CPC (Faixa),155,0,0.0,6,inteiro,'SC' (6),0,4
+CPC,CPC_2021.xlsx,Entidade Beneficiente de Assistência Social (CEBAS),155,122,78.7,1,texto,,0,-
+CPC,cpc_2022.xlsx,Ano,165,0,0.0,1,inteiro,,0,2022
+CPC,cpc_2022.xlsx,Código da IES,165,0,0.0,45,código (guardar como texto),,0,1
+CPC,cpc_2022.xlsx,Nome da IES,165,0,0.0,45,texto,,0,UNIVERSIDADE FEDERAL DE MATO GROSSO
+CPC,cpc_2022.xlsx,Sigla da IES,165,34,20.6,34,texto,,0,UFMT
+CPC,cpc_2022.xlsx,Organização Acadêmica,165,0,0.0,4,texto,,0,Universidade
+CPC,cpc_2022.xlsx,Categoria Administrativa,165,0,0.0,4,texto,,0,Pública Federal
+CPC,cpc_2022.xlsx,Código do Curso,165,0,0.0,165,código (guardar como texto),,0,13
+CPC,cpc_2022.xlsx,Código da Área,165,0,0.0,22,código (guardar como texto),,0,1
+CPC,cpc_2022.xlsx,Área de Avaliação,165,0,0.0,22,texto,,0,ADMINISTRAÇÃO
+CPC,cpc_2022.xlsx,Modalidade de Ensino,165,0,0.0,2,texto,,0,Educação Presencial
+CPC,cpc_2022.xlsx,Código do Município,165,0,0.0,25,código (guardar como texto),,0,5103403
+CPC,cpc_2022.xlsx,Município do Curso,165,0,0.0,25,texto,,0,Cuiabá
+CPC,cpc_2022.xlsx,Sigla da UF,165,0,0.0,1,texto,,0,MT
+CPC,cpc_2022.xlsx,Nº de Concluintes Inscritos,165,0,0.0,76,inteiro,,0,124
+CPC,cpc_2022.xlsx,Nº de Concluintes Participantes,165,0,0.0,62,inteiro,,0,52
+CPC,cpc_2022.xlsx,Nota Bruta - FG,165,0,0.0,142,decimal,,0,62.48653846
+CPC,cpc_2022.xlsx,Nota Padronizada - FG,165,0,0.0,137,decimal,,0,3.898611545
+CPC,cpc_2022.xlsx,Nota Bruta - CE,165,0,0.0,142,decimal,,0,49.65769231
+CPC,cpc_2022.xlsx,Nota Padronizada - CE,165,0,0.0,141,decimal,,0,3.668672597
+CPC,cpc_2022.xlsx,Conceito Enade (Contínuo),165,0,0.0,138,decimal,,0,3.726
+CPC,cpc_2022.xlsx,Concluintes participantes com nota no Enem,165,0,0.0,53,inteiro,,0,48
+CPC,cpc_2022.xlsx,Proporção de concluintes participantes com nota no Enem,165,0,0.0,82,decimal,,0,"0,923076923"
+CPC,cpc_2022.xlsx,Nota Bruta - IDD,165,0,0.0,132,decimal,,0,1.472995742
+CPC,cpc_2022.xlsx,Nota Padronizada - IDD,165,0,0.0,131,decimal,,0,2.772492304
+CPC,cpc_2022.xlsx,Nota Bruta – Organização Didático-Pedagógica,165,8,4.8,150,decimal,,0,4.714210447
+CPC,cpc_2022.xlsx,Nota Padronizada - Organização Didático-Pedagógica,165,0,0.0,152,decimal,,0,1.603574766
+CPC,cpc_2022.xlsx,Nota Bruta – Infraestrutura e Instalações Físicas,165,8,4.8,149,decimal,,0,4.616773903
+CPC,cpc_2022.xlsx,Nota Padronizada - Infraestrutura e Instalações Físicas,165,0,0.0,149,decimal,,0,1.709595808
+CPC,cpc_2022.xlsx,Nota Bruta – Oportunidade de Ampliação da Formação,165,8,4.8,151,decimal,,0,4.579223744
+CPC,cpc_2022.xlsx,Nota Padronizada - Oportunidade de Ampliação da Formação,165,0,0.0,154,decimal,,0,2.814190375
+CPC,cpc_2022.xlsx,Nota Bruta - Mestres,165,0,0.0,83,decimal,,0,0.965909091
+CPC,cpc_2022.xlsx,Nota Padronizada - Mestres,165,0,0.0,106,decimal,,0,4.783057852
+CPC,cpc_2022.xlsx,Nota Bruta - Doutores,165,0,0.0,90,decimal,,0,0.909090909
+CPC,cpc_2022.xlsx,Nota Padronizada - Doutores,165,0,0.0,90,decimal,,0,4.545454545
+CPC,cpc_2022.xlsx,Nota Bruta – Regime de Trabalho,165,0,0.0,57,decimal,,0,1
+CPC,cpc_2022.xlsx,Nota Padronizada - Regime de Trabalho,165,0,0.0,65,decimal,,0,5
+CPC,cpc_2022.xlsx,CPC (Contínuo),165,24,14.5,141,decimal,,0,3.407253951
+CPC,cpc_2022.xlsx,CPC (Faixa),165,0,0.0,5,inteiro,'SC' (24),0,4
+CPC,cpc_2022.xlsx,Entidade Beneficiente de Assistência Social (CEBAS),165,0,0.0,2,texto,,0,-
+CPC,CPC_2023.xlsx,Ano,238,0,0.0,1,inteiro,,0,2023
+CPC,CPC_2023.xlsx,Código da IES,238,0,0.0,35,código (guardar como texto),,0,1
+CPC,CPC_2023.xlsx,Nome da IES,238,0,0.0,35,texto,,0,UNIVERSIDADE FEDERAL DE MATO GROSSO
+CPC,CPC_2023.xlsx,Sigla da IES,238,30,12.6,24,texto,,0,UFMT
+CPC,CPC_2023.xlsx,Organização Acadêmica,238,0,0.0,4,texto,,0,Universidade
+CPC,CPC_2023.xlsx,Categoria Administrativa,238,0,0.0,4,texto,,0,Pública Federal
+CPC,CPC_2023.xlsx,Código do Curso,238,0,0.0,238,código (guardar como texto),,0,3
+CPC,CPC_2023.xlsx,Código da Área,238,0,0.0,27,código (guardar como texto),,0,5710
+CPC,CPC_2023.xlsx,Área de Avaliação,238,0,0.0,27,texto,,0,ENGENHARIA CIVIL
+CPC,CPC_2023.xlsx,Modalidade de Ensino,238,0,0.0,2,texto,,0,Educação Presencial
+CPC,CPC_2023.xlsx,Código do Município,238,0,0.0,29,código (guardar como texto),,0,5103403
+CPC,CPC_2023.xlsx,Município do Curso,238,0,0.0,29,texto,,0,Cuiabá
+CPC,CPC_2023.xlsx,Sigla da UF,238,0,0.0,1,texto,,0,MT
+CPC,CPC_2023.xlsx,Nº de Concluintes Inscritos,238,0,0.0,62,inteiro,,0,33
+CPC,CPC_2023.xlsx,Nº de Concluintes Participantes,238,0,0.0,57,inteiro,,0,31
+CPC,CPC_2023.xlsx,Nota Bruta - FG,238,11,4.6,225,decimal,,0,60.93548387
+CPC,CPC_2023.xlsx,Nota Padronizada - FG,238,11,4.6,224,decimal,,0,3.939283693
+CPC,CPC_2023.xlsx,Nota Bruta - CE,238,11,4.6,225,decimal,,0,59.1516129
+CPC,CPC_2023.xlsx,Nota Padronizada - CE,238,11,4.6,222,decimal,,0,4.490015307
+CPC,CPC_2023.xlsx,Conceito Enade (Contínuo),238,11,4.6,220,decimal,,0,4.352
+CPC,CPC_2023.xlsx,Concluintes participantes com nota no Enem,238,0,0.0,50,inteiro,,0,31
+CPC,CPC_2023.xlsx,Proporção de concluintes participantes com nota no Enem,238,6,2.5,109,decimal,,0,1
+CPC,CPC_2023.xlsx,Nota Bruta - IDD,238,22,9.2,216,decimal,,0,7.439649618
+CPC,CPC_2023.xlsx,Nota Padronizada - IDD,238,22,9.2,209,decimal,,0,4.207
+CPC,CPC_2023.xlsx,Nota Bruta – Organização Didático-Pedagógica,238,10,4.2,212,decimal,,0,3.4249592701205605
+CPC,CPC_2023.xlsx,Nota Padronizada - Organização Didático-Pedagógica,238,10,4.2,204,decimal,,0,0
+CPC,CPC_2023.xlsx,Nota Bruta – Infraestrutura e Instalações Físicas,238,10,4.2,211,decimal,,0,3.7097338145725245
+CPC,CPC_2023.xlsx,Nota Padronizada - Infraestrutura e Instalações Físicas,238,10,4.2,205,decimal,,0,0.019
+CPC,CPC_2023.xlsx,Nota Bruta – Oportunidade de Ampliação da Formação,238,10,4.2,214,decimal,,0,3.103225806451613
+CPC,CPC_2023.xlsx,Nota Padronizada - Oportunidade de Ampliação da Formação,238,10,4.2,203,decimal,,0,0.682
+CPC,CPC_2023.xlsx,Nota Bruta - Mestres,238,0,0.0,127,decimal,,0,0.8409090909090909
+CPC,CPC_2023.xlsx,Nota Padronizada - Mestres,238,0,0.0,154,decimal,,0,3.33
+CPC,CPC_2023.xlsx,Nota Bruta - Doutores,238,0,0.0,143,decimal,,0,0.5909090909090909
+CPC,CPC_2023.xlsx,Nota Padronizada - Doutores,238,0,0.0,156,decimal,,0,2.955
+CPC,CPC_2023.xlsx,Nota Bruta – Regime de Trabalho,238,0,0.0,76,decimal,,0,1
+CPC,CPC_2023.xlsx,Nota Padronizada - Regime de Trabalho,238,0,0.0,107,decimal,,0,5
+CPC,CPC_2023.xlsx,CPC (Contínuo),238,11,4.6,210,decimal,,0,3.429
+CPC,CPC_2023.xlsx,CPC (Faixa),238,0,0.0,6,inteiro,'SC' (11),0,4
+CPC,CPC_2023.xlsx,Entidade Beneficiente de Assistência Social (CEBAS),238,0,0.0,2,texto,,0,-
+IGC,IGC_2021.xlsx,Ano,45,0,0.0,1,inteiro,,0,2021
+IGC,IGC_2021.xlsx,Código da IES,45,0,0.0,45,código (guardar como texto),,0,1
+IGC,IGC_2021.xlsx,Nome da IES,45,0,0.0,45,texto,,0,UNIVERSIDADE FEDERAL DE MATO GROSSO
+IGC,IGC_2021.xlsx,Sigla da IES,45,10,22.2,34,texto,,0,UFMT
+IGC,IGC_2021.xlsx,Organização Acadêmica,45,0,0.0,4,texto,,0,Universidade
+IGC,IGC_2021.xlsx,Categoria Administrativa,45,0,0.0,4,texto,,0,Pública Federal
+IGC,IGC_2021.xlsx,Sigla da UF,45,0,0.0,1,texto,,0,MT
+IGC,IGC_2021.xlsx,Nº de Cursos com CPC no triênio,45,0,0.0,20,inteiro,,0,80
+IGC,IGC_2021.xlsx,Alfa (Proporção de Graduação),45,0,0.0,5,decimal,,0,0.78
+IGC,IGC_2021.xlsx,Conceito Médio de Graduação,45,0,0.0,45,decimal,,0,3.019
+IGC,IGC_2021.xlsx,Beta (Proporção de Mestrado - Equivalente),45,0,0.0,5,decimal,,0,0.134
+IGC,IGC_2021.xlsx,Conceito Médio de Mestrado,45,0,0.0,5,decimal,,0,4.272
+IGC,IGC_2021.xlsx,Gama (Proporção de Doutorandos – Equivalente),45,0,0.0,4,decimal,,0,0.084
+IGC,IGC_2021.xlsx,Conceito Médio do doutorado,45,0,0.0,3,decimal,,0,4.668
+IGC,IGC_2021.xlsx,IGC (Contínuo),45,0,0.0,45,decimal,,0,3.328
+IGC,IGC_2021.xlsx,IGC (Faixa),45,0,0.0,3,inteiro,,0,4
+IGC,IGC_2021.xlsx,TX_OBS,45,45,100.0,0,sem valor,,0,
+IGC,IGC_2021.xlsx,Entidade Beneficiente de Assistência Social (CEBAS),45,0,0.0,2,texto,,0,-
+IGC,igc_2022.xlsx,Ano,45,0,0.0,1,inteiro,,0,2022
+IGC,igc_2022.xlsx,Código da IES,45,0,0.0,45,código (guardar como texto),,0,1
+IGC,igc_2022.xlsx,Nome da IES,45,0,0.0,45,texto,,0,UNIVERSIDADE FEDERAL DE MATO GROSSO
+IGC,igc_2022.xlsx,Sigla da IES,45,0,0.0,32,texto,,0,UFMT
+IGC,igc_2022.xlsx,Organização Acadêmica,45,0,0.0,4,texto,,0,Universidade
+IGC,igc_2022.xlsx,Categoria Administrativa,45,0,0.0,4,texto,,0,Pública Federal
+IGC,igc_2022.xlsx,Sigla da UF,45,0,0.0,1,texto,,0,MT
+IGC,igc_2022.xlsx,Nº de Cursos com CPC no triênio,45,0,0.0,17,inteiro,,0,77
+IGC,igc_2022.xlsx,Alfa (Proporção de Graduação),45,0,0.0,6,decimal,,0,0.736044695
+IGC,igc_2022.xlsx,Conceito Médio de Graduação,45,0,0.0,45,decimal,,0,3.106215119
+IGC,igc_2022.xlsx,Beta (Proporção de Mestrado - Equivalente),45,6,13.3,6,decimal,,0,0.167179584
+IGC,igc_2022.xlsx,Conceito Médio de Mestrado,45,6,13.3,5,decimal,,0,4.448683503
+IGC,igc_2022.xlsx,Gama (Proporção de Doutorandos – Equivalente),45,7,15.6,4,decimal,,0,0.096775721
+IGC,igc_2022.xlsx,Conceito Médio do doutorado,45,7,15.6,4,decimal,,0,4.817010309
+IGC,igc_2022.xlsx,IGC (Contínuo),45,0,0.0,45,decimal,,0,3.496211863
+IGC,igc_2022.xlsx,IGC (Faixa),45,0,0.0,3,inteiro,,0,4
+IGC,igc_2022.xlsx,(Observação),45,0,0.0,2,inteiro,,0,2
+IGC,igc_2022.xlsx,Entidade Beneficiente de Assistência Social (CEBAS),45,0,0.0,2,texto,,0,-
+IGC,IGC_2023.xlsx,Ano,51,0,0.0,1,inteiro,,0,2023
+IGC,IGC_2023.xlsx,Código da IES,51,0,0.0,51,código (guardar como texto),,0,1
+IGC,IGC_2023.xlsx,Nome da IES,51,0,0.0,51,texto,,0,UNIVERSIDADE FEDERAL DE MATO GROSSO
+IGC,IGC_2023.xlsx,Sigla da IES,51,10,19.6,37,texto,,0,UFMT
+IGC,IGC_2023.xlsx,Organização Acadêmica,51,0,0.0,4,texto,,0,Universidade
+IGC,IGC_2023.xlsx,Categoria Administrativa,51,0,0.0,4,texto,,0,Pública Federal
+IGC,IGC_2023.xlsx,Sigla da UF,51,0,0.0,1,texto,,0,MT
+IGC,IGC_2023.xlsx,Nº de Cursos com CPC no triênio,51,0,0.0,23,inteiro,,0,71
+IGC,IGC_2023.xlsx,Alfa (Proporção de Graduação),51,1,2.0,7,decimal,,0,0.716
+IGC,IGC_2023.xlsx,Conceito Médio de Graduação,51,0,0.0,50,decimal,,0,3.146
+IGC,IGC_2023.xlsx,Beta (Proporção de Mestrado - Equivalente),51,1,2.0,7,decimal,,0,0.176
+IGC,IGC_2023.xlsx,Conceito Médio de Mestrado,51,0,0.0,6,decimal,,0,4.458
+IGC,IGC_2023.xlsx,Gama (Proporção de Doutorandos – Equivalente),51,1,2.0,5,decimal,,0,0.109
+IGC,IGC_2023.xlsx,Conceito Médio do doutorado,51,0,0.0,5,decimal,,0,4.745
+IGC,IGC_2023.xlsx,IGC (Contínuo),51,1,2.0,50,decimal,,0,3.554
+IGC,IGC_2023.xlsx,IGC (Faixa),51,0,0.0,4,inteiro,'SC' (1),0,4
+IGC,IGC_2023.xlsx,Entidade Beneficiente de Assistência Social (CEBAS),51,0,0.0,2,texto,,0,-
+Enade Licenciaturas,conceito_enade_licenciaturas.xlsx,Ano,97,0,0.0,1,inteiro,,0,2025
+Enade Licenciaturas,conceito_enade_licenciaturas.xlsx,Código da Área,97,0,0.0,16,código (guardar como texto),,0,702
+Enade Licenciaturas,conceito_enade_licenciaturas.xlsx,Área de Avaliação,97,0,0.0,16,texto,,0,MATEMÁTICA
+Enade Licenciaturas,conceito_enade_licenciaturas.xlsx,Grau Acadêmico,97,0,0.0,1,texto,,0,LICENCIATURA
+Enade Licenciaturas,conceito_enade_licenciaturas.xlsx,Código da IES,97,0,0.0,15,código (guardar como texto),,0,1
+Enade Licenciaturas,conceito_enade_licenciaturas.xlsx,Nome da IES,97,0,0.0,15,texto,,0,UNIVERSIDADE FEDERAL DE MATO GROSSO
+Enade Licenciaturas,conceito_enade_licenciaturas.xlsx,Sigla da IES,97,1,1.0,14,texto,,0,UFMT
+Enade Licenciaturas,conceito_enade_licenciaturas.xlsx,Organização Acadêmica,97,0,0.0,4,texto,,0,Universidade
+Enade Licenciaturas,conceito_enade_licenciaturas.xlsx,Categoria Administrativa,97,0,0.0,4,texto,,0,Pública Federal
+Enade Licenciaturas,conceito_enade_licenciaturas.xlsx,Código do Curso,97,0,0.0,97,código (guardar como texto),,0,26
+Enade Licenciaturas,conceito_enade_licenciaturas.xlsx,Modalidade de Ensino,97,0,0.0,2,texto,,0,Presencial
+Enade Licenciaturas,conceito_enade_licenciaturas.xlsx,Código do Município,97,0,0.0,25,código (guardar como texto),,0,5103403
+Enade Licenciaturas,conceito_enade_licenciaturas.xlsx,Município do Curso,97,0,0.0,25,texto,,0,Cuiabá
+Enade Licenciaturas,conceito_enade_licenciaturas.xlsx,Sigla da UF,97,0,0.0,1,texto,,0,MT
+Enade Licenciaturas,conceito_enade_licenciaturas.xlsx,Nº de Concluintes Inscritos,97,0,0.0,43,inteiro,,0,13
+Enade Licenciaturas,conceito_enade_licenciaturas.xlsx,Nº  de Concluintes Participantes,97,4,4.1,33,inteiro,,0,11
+Enade Licenciaturas,conceito_enade_licenciaturas.xlsx,Total de Concluinte  Igual ou Acima do Padrão 1 de Proficiência,97,6,6.2,24,inteiro,,0,8
+Enade Licenciaturas,conceito_enade_licenciaturas.xlsx,Percentual de Concluintes Igual ou Acima do Padrão 1 de Proficiência,97,6,6.2,55,decimal,,0,0.727
+Enade Licenciaturas,conceito_enade_licenciaturas.xlsx,Conceito Enade (Faixa),97,0,0.0,6,inteiro,'SC' (6),0,3
+Enade Licenciaturas,conceito_enade_licenciaturas.xlsx,CEBAS,97,0,0.0,2,texto,,0,Não
+Trajetória,indicadores_trajetoria_educacao_superior_2015_2024.xlsx,CO_IES,5150,0,0.0,47,código (guardar como texto),,0,1
+Trajetória,indicadores_trajetoria_educacao_superior_2015_2024.xlsx,NO_IES,5150,0,0.0,47,texto,,0,UNIVERSIDADE FEDERAL DE MATO GROSSO
+Trajetória,indicadores_trajetoria_educacao_superior_2015_2024.xlsx,TP_CATEGORIA_ADMINISTRATIVA,5150,0,0.0,4,categoria codificada,,0,1
+Trajetória,indicadores_trajetoria_educacao_superior_2015_2024.xlsx,TP_ORGANIZACAO_ACADEMICA,5150,0,0.0,4,categoria codificada,,0,1
+Trajetória,indicadores_trajetoria_educacao_superior_2015_2024.xlsx,CO_CURSO,5150,0,0.0,515,código (guardar como texto),,0,1
+Trajetória,indicadores_trajetoria_educacao_superior_2015_2024.xlsx,NO_CURSO,5150,0,0.0,112,texto,,0,DIREITO
+Trajetória,indicadores_trajetoria_educacao_superior_2015_2024.xlsx,CO_REGIAO,5150,0,0.0,1,código (guardar como texto),,0,5
+Trajetória,indicadores_trajetoria_educacao_superior_2015_2024.xlsx,CO_UF,5150,0,0.0,1,código (guardar como texto),,0,51
+Trajetória,indicadores_trajetoria_educacao_superior_2015_2024.xlsx,CO_MUNICIPIO,5150,0,0.0,30,código (guardar como texto),,0,5103403
+Trajetória,indicadores_trajetoria_educacao_superior_2015_2024.xlsx,TP_GRAU_ACADEMICO,5150,0,0.0,3,categoria codificada,,0,1
+Trajetória,indicadores_trajetoria_educacao_superior_2015_2024.xlsx,TP_MODALIDADE_ENSINO,5150,0,0.0,1,categoria codificada,,0,1
+Trajetória,indicadores_trajetoria_educacao_superior_2015_2024.xlsx,CO_CINE_ROTULO,5150,0,0.0,101,texto,,0,0421D01
+Trajetória,indicadores_trajetoria_educacao_superior_2015_2024.xlsx,NO_CINE_ROTULO,5150,0,0.0,99,texto,,0,Direito
+Trajetória,indicadores_trajetoria_educacao_superior_2015_2024.xlsx,CO_CINE_AREA_GERAL,5150,0,0.0,10,código (guardar como texto),,0,04
+Trajetória,indicadores_trajetoria_educacao_superior_2015_2024.xlsx,NO_CINE_AREA_GERAL,5150,0,0.0,10,texto,,0,"Negócios, administração e direito"
+Trajetória,indicadores_trajetoria_educacao_superior_2015_2024.xlsx,NU_ANO_INGRESSO,5150,0,0.0,1,inteiro,,0,2015
+Trajetória,indicadores_trajetoria_educacao_superior_2015_2024.xlsx,NU_ANO_REFERENCIA,5150,0,0.0,10,inteiro,,0,2015
+Trajetória,indicadores_trajetoria_educacao_superior_2015_2024.xlsx,NU_PRAZO_INTEGRALIZACAO,5150,0,0.0,5,inteiro,,0,6
+Trajetória,indicadores_trajetoria_educacao_superior_2015_2024.xlsx,NU_ANO_INTEGRALIZACAO,5150,0,0.0,5,inteiro,,0,2020
+Trajetória,indicadores_trajetoria_educacao_superior_2015_2024.xlsx,NU_PRAZO_ACOMPANHAMENTO,5150,0,0.0,7,inteiro,,0,10
+Trajetória,indicadores_trajetoria_educacao_superior_2015_2024.xlsx,NU_ANO_MAXIMO_ACOMPANHAMENTO,5150,0,0.0,7,inteiro,,0,2024
+Trajetória,indicadores_trajetoria_educacao_superior_2015_2024.xlsx,QT_INGRESSANTE,5150,0,0.0,163,inteiro,,0,98
+Trajetória,indicadores_trajetoria_educacao_superior_2015_2024.xlsx,QT_PERMANENCIA,5150,0,0.0,236,inteiro,,0,97
+Trajetória,indicadores_trajetoria_educacao_superior_2015_2024.xlsx,QT_CONCLUINTE,5150,0,0.0,76,inteiro,,0,1
+Trajetória,indicadores_trajetoria_educacao_superior_2015_2024.xlsx,QT_DESISTENCIA,5150,0,0.0,80,inteiro,,0,0
+Trajetória,indicadores_trajetoria_educacao_superior_2015_2024.xlsx,QT_FALECIDO,5150,0,0.0,2,inteiro,,0,0
+Trajetória,indicadores_trajetoria_educacao_superior_2015_2024.xlsx,TAP,5150,0,0.0,1933,decimal,,0,98.97959184
+Trajetória,indicadores_trajetoria_educacao_superior_2015_2024.xlsx,TCA,5150,0,0.0,1315,decimal,,0,1.020408163
+Trajetória,indicadores_trajetoria_educacao_superior_2015_2024.xlsx,TDA,5150,0,0.0,1794,decimal,,0,0
+Trajetória,indicadores_trajetoria_educacao_superior_2015_2024.xlsx,TCAN,5150,0,0.0,869,decimal,,0,1.020408163
+Trajetória,indicadores_trajetoria_educacao_superior_2015_2024.xlsx,TADA,5150,0,0.0,1063,decimal,,0,0
+Trajetória,indicadores_trajetoria_educacao_superior_2016_2024.xlsx,CO_IES,5157,0,0.0,49,código (guardar como texto),,0,1
+Trajetória,indicadores_trajetoria_educacao_superior_2016_2024.xlsx,NO_IES,5157,0,0.0,49,texto,,0,UNIVERSIDADE FEDERAL DE MATO GROSSO
+Trajetória,indicadores_trajetoria_educacao_superior_2016_2024.xlsx,TP_CATEGORIA_ADMINISTRATIVA,5157,0,0.0,4,categoria codificada,,0,1
+Trajetória,indicadores_trajetoria_educacao_superior_2016_2024.xlsx,TP_ORGANIZACAO_ACADEMICA,5157,0,0.0,4,categoria codificada,,0,1
+Trajetória,indicadores_trajetoria_educacao_superior_2016_2024.xlsx,CO_CURSO,5157,0,0.0,573,código (guardar como texto),,0,1
+Trajetória,indicadores_trajetoria_educacao_superior_2016_2024.xlsx,NO_CURSO,5157,0,0.0,115,texto,,0,DIREITO
+Trajetória,indicadores_trajetoria_educacao_superior_2016_2024.xlsx,CO_REGIAO,5157,0,0.0,1,código (guardar como texto),,0,5
+Trajetória,indicadores_trajetoria_educacao_superior_2016_2024.xlsx,CO_UF,5157,0,0.0,1,código (guardar como texto),,0,51
+Trajetória,indicadores_trajetoria_educacao_superior_2016_2024.xlsx,CO_MUNICIPIO,5157,0,0.0,30,código (guardar como texto),,0,5103403
+Trajetória,indicadores_trajetoria_educacao_superior_2016_2024.xlsx,TP_GRAU_ACADEMICO,5157,0,0.0,3,categoria codificada,,0,1
+Trajetória,indicadores_trajetoria_educacao_superior_2016_2024.xlsx,TP_MODALIDADE_ENSINO,5157,0,0.0,1,categoria codificada,,0,1
+Trajetória,indicadores_trajetoria_educacao_superior_2016_2024.xlsx,CO_CINE_ROTULO,5157,0,0.0,104,texto,,0,0421D01
+Trajetória,indicadores_trajetoria_educacao_superior_2016_2024.xlsx,NO_CINE_ROTULO,5157,0,0.0,102,texto,,0,Direito
+Trajetória,indicadores_trajetoria_educacao_superior_2016_2024.xlsx,CO_CINE_AREA_GERAL,5157,0,0.0,10,código (guardar como texto),,0,04
+Trajetória,indicadores_trajetoria_educacao_superior_2016_2024.xlsx,NO_CINE_AREA_GERAL,5157,0,0.0,10,texto,,0,"Negócios, administração e direito"
+Trajetória,indicadores_trajetoria_educacao_superior_2016_2024.xlsx,NU_ANO_INGRESSO,5157,0,0.0,1,inteiro,,0,2016
+Trajetória,indicadores_trajetoria_educacao_superior_2016_2024.xlsx,NU_ANO_REFERENCIA,5157,0,0.0,9,inteiro,,0,2016
+Trajetória,indicadores_trajetoria_educacao_superior_2016_2024.xlsx,NU_PRAZO_INTEGRALIZACAO,5157,0,0.0,5,inteiro,,0,6
+Trajetória,indicadores_trajetoria_educacao_superior_2016_2024.xlsx,NU_ANO_INTEGRALIZACAO,5157,0,0.0,5,inteiro,,0,2021
+Trajetória,indicadores_trajetoria_educacao_superior_2016_2024.xlsx,NU_PRAZO_ACOMPANHAMENTO,5157,0,0.0,7,inteiro,,0,10
+Trajetória,indicadores_trajetoria_educacao_superior_2016_2024.xlsx,NU_ANO_MAXIMO_ACOMPANHAMENTO,5157,0,0.0,7,inteiro,,0,2025
+Trajetória,indicadores_trajetoria_educacao_superior_2016_2024.xlsx,QT_INGRESSANTE,5157,0,0.0,164,inteiro,,0,91
+Trajetória,indicadores_trajetoria_educacao_superior_2016_2024.xlsx,QT_PERMANENCIA,5157,0,0.0,203,inteiro,,0,90
+Trajetória,indicadores_trajetoria_educacao_superior_2016_2024.xlsx,QT_CONCLUINTE,5157,0,0.0,70,inteiro,,0,0
+Trajetória,indicadores_trajetoria_educacao_superior_2016_2024.xlsx,QT_DESISTENCIA,5157,0,0.0,95,inteiro,,0,1
+Trajetória,indicadores_trajetoria_educacao_superior_2016_2024.xlsx,QT_FALECIDO,5157,0,0.0,2,inteiro,,0,0
+Trajetória,indicadores_trajetoria_educacao_superior_2016_2024.xlsx,TAP,5157,0,0.0,1815,decimal,,0,98.9010989
+Trajetória,indicadores_trajetoria_educacao_superior_2016_2024.xlsx,TCA,5157,0,0.0,1289,decimal,,0,0
+Trajetória,indicadores_trajetoria_educacao_superior_2016_2024.xlsx,TDA,5157,0,0.0,1772,decimal,,0,1.098901099
+Trajetória,indicadores_trajetoria_educacao_superior_2016_2024.xlsx,TCAN,5157,0,0.0,861,decimal,,0,0
+Trajetória,indicadores_trajetoria_educacao_superior_2016_2024.xlsx,TADA,5157,0,0.0,1097,decimal,,0,1.098901099
+Trajetória,indicadores_trajetoria_educacao_superior_2017_2024.xlsx,CO_IES,4864,0,0.0,51,código (guardar como texto),,0,1
+Trajetória,indicadores_trajetoria_educacao_superior_2017_2024.xlsx,NO_IES,4864,0,0.0,51,texto,,0,UNIVERSIDADE FEDERAL DE MATO GROSSO
+Trajetória,indicadores_trajetoria_educacao_superior_2017_2024.xlsx,TP_CATEGORIA_ADMINISTRATIVA,4864,0,0.0,4,categoria codificada,,0,1
+Trajetória,indicadores_trajetoria_educacao_superior_2017_2024.xlsx,TP_ORGANIZACAO_ACADEMICA,4864,0,0.0,4,categoria codificada,,0,1
+Trajetória,indicadores_trajetoria_educacao_superior_2017_2024.xlsx,CO_CURSO,4864,0,0.0,608,código (guardar como texto),,0,1
+Trajetória,indicadores_trajetoria_educacao_superior_2017_2024.xlsx,NO_CURSO,4864,0,0.0,118,texto,,0,DIREITO
+Trajetória,indicadores_trajetoria_educacao_superior_2017_2024.xlsx,CO_REGIAO,4864,0,0.0,1,código (guardar como texto),,0,5
+Trajetória,indicadores_trajetoria_educacao_superior_2017_2024.xlsx,CO_UF,4864,0,0.0,1,código (guardar como texto),,0,51
+Trajetória,indicadores_trajetoria_educacao_superior_2017_2024.xlsx,CO_MUNICIPIO,4864,0,0.0,33,código (guardar como texto),,0,5103403
+Trajetória,indicadores_trajetoria_educacao_superior_2017_2024.xlsx,TP_GRAU_ACADEMICO,4864,0,0.0,3,categoria codificada,,0,1
+Trajetória,indicadores_trajetoria_educacao_superior_2017_2024.xlsx,TP_MODALIDADE_ENSINO,4864,0,0.0,1,categoria codificada,,0,1
+Trajetória,indicadores_trajetoria_educacao_superior_2017_2024.xlsx,CO_CINE_ROTULO,4864,0,0.0,106,texto,,0,0421D01
+Trajetória,indicadores_trajetoria_educacao_superior_2017_2024.xlsx,NO_CINE_ROTULO,4864,0,0.0,104,texto,,0,Direito
+Trajetória,indicadores_trajetoria_educacao_superior_2017_2024.xlsx,CO_CINE_AREA_GERAL,4864,0,0.0,10,código (guardar como texto),,0,04
+Trajetória,indicadores_trajetoria_educacao_superior_2017_2024.xlsx,NO_CINE_AREA_GERAL,4864,0,0.0,10,texto,,0,"Negócios, administração e direito"
+Trajetória,indicadores_trajetoria_educacao_superior_2017_2024.xlsx,NU_ANO_INGRESSO,4864,0,0.0,1,inteiro,,0,2017
+Trajetória,indicadores_trajetoria_educacao_superior_2017_2024.xlsx,NU_ANO_REFERENCIA,4864,0,0.0,8,inteiro,,0,2017
+Trajetória,indicadores_trajetoria_educacao_superior_2017_2024.xlsx,NU_PRAZO_INTEGRALIZACAO,4864,0,0.0,5,inteiro,,0,6
+Trajetória,indicadores_trajetoria_educacao_superior_2017_2024.xlsx,NU_ANO_INTEGRALIZACAO,4864,0,0.0,5,inteiro,,0,2022
+Trajetória,indicadores_trajetoria_educacao_superior_2017_2024.xlsx,NU_PRAZO_ACOMPANHAMENTO,4864,0,0.0,7,inteiro,,0,10
+Trajetória,indicadores_trajetoria_educacao_superior_2017_2024.xlsx,NU_ANO_MAXIMO_ACOMPANHAMENTO,4864,0,0.0,7,inteiro,,0,2026
+Trajetória,indicadores_trajetoria_educacao_superior_2017_2024.xlsx,QT_INGRESSANTE,4864,0,0.0,166,inteiro,,0,95
+Trajetória,indicadores_trajetoria_educacao_superior_2017_2024.xlsx,QT_PERMANENCIA,4864,0,0.0,201,inteiro,,0,94
+Trajetória,indicadores_trajetoria_educacao_superior_2017_2024.xlsx,QT_CONCLUINTE,4864,0,0.0,65,inteiro,,0,0
+Trajetória,indicadores_trajetoria_educacao_superior_2017_2024.xlsx,QT_DESISTENCIA,4864,0,0.0,100,inteiro,,0,1
+Trajetória,indicadores_trajetoria_educacao_superior_2017_2024.xlsx,QT_FALECIDO,4864,0,0.0,2,inteiro,,0,0
+Trajetória,indicadores_trajetoria_educacao_superior_2017_2024.xlsx,TAP,4864,0,0.0,1785,decimal,,0,98.94736842
+Trajetória,indicadores_trajetoria_educacao_superior_2017_2024.xlsx,TCA,4864,0,0.0,1206,decimal,,0,0
+Trajetória,indicadores_trajetoria_educacao_superior_2017_2024.xlsx,TDA,4864,0,0.0,1695,decimal,,0,1.052631579
+Trajetória,indicadores_trajetoria_educacao_superior_2017_2024.xlsx,TCAN,4864,0,0.0,847,decimal,,0,0
+Trajetória,indicadores_trajetoria_educacao_superior_2017_2024.xlsx,TADA,4864,0,0.0,1063,decimal,,0,1.052631579
+Trajetória,indicadores_trajetoria_educacao_superior_2018_2024.xlsx,CO_IES,4361,0,0.0,53,código (guardar como texto),,0,1
+Trajetória,indicadores_trajetoria_educacao_superior_2018_2024.xlsx,NO_IES,4361,0,0.0,53,texto,,0,UNIVERSIDADE FEDERAL DE MATO GROSSO
+Trajetória,indicadores_trajetoria_educacao_superior_2018_2024.xlsx,TP_CATEGORIA_ADMINISTRATIVA,4361,0,0.0,4,categoria codificada,,0,1
+Trajetória,indicadores_trajetoria_educacao_superior_2018_2024.xlsx,TP_ORGANIZACAO_ACADEMICA,4361,0,0.0,4,categoria codificada,,0,1
+Trajetória,indicadores_trajetoria_educacao_superior_2018_2024.xlsx,CO_CURSO,4361,0,0.0,623,código (guardar como texto),,0,1
+Trajetória,indicadores_trajetoria_educacao_superior_2018_2024.xlsx,NO_CURSO,4361,0,0.0,114,texto,,0,DIREITO
+Trajetória,indicadores_trajetoria_educacao_superior_2018_2024.xlsx,CO_REGIAO,4361,0,0.0,1,código (guardar como texto),,0,5
+Trajetória,indicadores_trajetoria_educacao_superior_2018_2024.xlsx,CO_UF,4361,0,0.0,1,código (guardar como texto),,0,51
+Trajetória,indicadores_trajetoria_educacao_superior_2018_2024.xlsx,CO_MUNICIPIO,4361,0,0.0,31,código (guardar como texto),,0,5103403
+Trajetória,indicadores_trajetoria_educacao_superior_2018_2024.xlsx,TP_GRAU_ACADEMICO,4361,0,0.0,3,categoria codificada,,0,1
+Trajetória,indicadores_trajetoria_educacao_superior_2018_2024.xlsx,TP_MODALIDADE_ENSINO,4361,0,0.0,1,categoria codificada,,0,1
+Trajetória,indicadores_trajetoria_educacao_superior_2018_2024.xlsx,CO_CINE_ROTULO,4361,0,0.0,106,texto,,0,0421D01
+Trajetória,indicadores_trajetoria_educacao_superior_2018_2024.xlsx,NO_CINE_ROTULO,4361,0,0.0,104,texto,,0,Direito
+Trajetória,indicadores_trajetoria_educacao_superior_2018_2024.xlsx,CO_CINE_AREA_GERAL,4361,0,0.0,10,código (guardar como texto),,0,04
+Trajetória,indicadores_trajetoria_educacao_superior_2018_2024.xlsx,NO_CINE_AREA_GERAL,4361,0,0.0,10,texto,,0,"Negócios, administração e direito"
+Trajetória,indicadores_trajetoria_educacao_superior_2018_2024.xlsx,NU_ANO_INGRESSO,4361,0,0.0,1,inteiro,,0,2018
+Trajetória,indicadores_trajetoria_educacao_superior_2018_2024.xlsx,NU_ANO_REFERENCIA,4361,0,0.0,7,inteiro,,0,2018
+Trajetória,indicadores_trajetoria_educacao_superior_2018_2024.xlsx,NU_PRAZO_INTEGRALIZACAO,4361,0,0.0,5,inteiro,,0,6
+Trajetória,indicadores_trajetoria_educacao_superior_2018_2024.xlsx,NU_ANO_INTEGRALIZACAO,4361,0,0.0,5,inteiro,,0,2023
+Trajetória,indicadores_trajetoria_educacao_superior_2018_2024.xlsx,NU_PRAZO_ACOMPANHAMENTO,4361,0,0.0,7,inteiro,,0,10
+Trajetória,indicadores_trajetoria_educacao_superior_2018_2024.xlsx,NU_ANO_MAXIMO_ACOMPANHAMENTO,4361,0,0.0,7,inteiro,,0,2027
+Trajetória,indicadores_trajetoria_educacao_superior_2018_2024.xlsx,QT_INGRESSANTE,4361,0,0.0,169,inteiro,,0,100
+Trajetória,indicadores_trajetoria_educacao_superior_2018_2024.xlsx,QT_PERMANENCIA,4361,0,0.0,198,inteiro,,0,100
+Trajetória,indicadores_trajetoria_educacao_superior_2018_2024.xlsx,QT_CONCLUINTE,4361,0,0.0,67,inteiro,,0,0
+Trajetória,indicadores_trajetoria_educacao_superior_2018_2024.xlsx,QT_DESISTENCIA,4361,0,0.0,90,inteiro,,0,0
+Trajetória,indicadores_trajetoria_educacao_superior_2018_2024.xlsx,QT_FALECIDO,4361,0,0.0,3,inteiro,,0,0
+Trajetória,indicadores_trajetoria_educacao_superior_2018_2024.xlsx,TAP,4361,0,0.0,1707,decimal,,0,100
+Trajetória,indicadores_trajetoria_educacao_superior_2018_2024.xlsx,TCA,4361,0,0.0,1115,decimal,,0,0
+Trajetória,indicadores_trajetoria_educacao_superior_2018_2024.xlsx,TDA,4361,0,0.0,1584,decimal,,0,0
+Trajetória,indicadores_trajetoria_educacao_superior_2018_2024.xlsx,TCAN,4361,0,0.0,828,decimal,,0,0
+Trajetória,indicadores_trajetoria_educacao_superior_2018_2024.xlsx,TADA,4361,0,0.0,1025,decimal,,0,0
+Trajetória,indicadores_trajetoria_educacao_superior_2019_2024.xlsx,CO_IES,3876,0,0.0,60,código (guardar como texto),,0,1
+Trajetória,indicadores_trajetoria_educacao_superior_2019_2024.xlsx,NO_IES,3876,0,0.0,60,texto,,0,UNIVERSIDADE FEDERAL DE MATO GROSSO
+Trajetória,indicadores_trajetoria_educacao_superior_2019_2024.xlsx,TP_CATEGORIA_ADMINISTRATIVA,3876,0,0.0,4,categoria codificada,,0,1
+Trajetória,indicadores_trajetoria_educacao_superior_2019_2024.xlsx,TP_ORGANIZACAO_ACADEMICA,3876,0,0.0,4,categoria codificada,,0,1
+Trajetória,indicadores_trajetoria_educacao_superior_2019_2024.xlsx,CO_CURSO,3876,0,0.0,646,código (guardar como texto),,0,1
+Trajetória,indicadores_trajetoria_educacao_superior_2019_2024.xlsx,NO_CURSO,3876,0,0.0,120,texto,,0,DIREITO
+Trajetória,indicadores_trajetoria_educacao_superior_2019_2024.xlsx,CO_REGIAO,3876,0,0.0,1,código (guardar como texto),,0,5
+Trajetória,indicadores_trajetoria_educacao_superior_2019_2024.xlsx,CO_UF,3876,0,0.0,1,código (guardar como texto),,0,51
+Trajetória,indicadores_trajetoria_educacao_superior_2019_2024.xlsx,CO_MUNICIPIO,3876,0,0.0,34,código (guardar como texto),,0,5103403
+Trajetória,indicadores_trajetoria_educacao_superior_2019_2024.xlsx,TP_GRAU_ACADEMICO,3876,0,0.0,3,categoria codificada,,0,1
+Trajetória,indicadores_trajetoria_educacao_superior_2019_2024.xlsx,TP_MODALIDADE_ENSINO,3876,0,0.0,1,categoria codificada,,0,1
+Trajetória,indicadores_trajetoria_educacao_superior_2019_2024.xlsx,CO_CINE_ROTULO,3876,0,0.0,110,texto,,0,0421D01
+Trajetória,indicadores_trajetoria_educacao_superior_2019_2024.xlsx,NO_CINE_ROTULO,3876,0,0.0,108,texto,,0,Direito
+Trajetória,indicadores_trajetoria_educacao_superior_2019_2024.xlsx,CO_CINE_AREA_GERAL,3876,0,0.0,10,código (guardar como texto),,0,04
+Trajetória,indicadores_trajetoria_educacao_superior_2019_2024.xlsx,NO_CINE_AREA_GERAL,3876,0,0.0,10,texto,,0,"Negócios, administração e direito"
+Trajetória,indicadores_trajetoria_educacao_superior_2019_2024.xlsx,NU_ANO_INGRESSO,3876,0,0.0,1,inteiro,,0,2019
+Trajetória,indicadores_trajetoria_educacao_superior_2019_2024.xlsx,NU_ANO_REFERENCIA,3876,0,0.0,6,inteiro,,0,2019
+Trajetória,indicadores_trajetoria_educacao_superior_2019_2024.xlsx,NU_PRAZO_INTEGRALIZACAO,3876,0,0.0,5,inteiro,,0,6
+Trajetória,indicadores_trajetoria_educacao_superior_2019_2024.xlsx,NU_ANO_INTEGRALIZACAO,3876,0,0.0,5,inteiro,,0,2024
+Trajetória,indicadores_trajetoria_educacao_superior_2019_2024.xlsx,NU_PRAZO_ACOMPANHAMENTO,3876,0,0.0,7,inteiro,,0,10
+Trajetória,indicadores_trajetoria_educacao_superior_2019_2024.xlsx,NU_ANO_MAXIMO_ACOMPANHAMENTO,3876,0,0.0,7,inteiro,,0,2028
+Trajetória,indicadores_trajetoria_educacao_superior_2019_2024.xlsx,QT_INGRESSANTE,3876,0,0.0,158,inteiro,,0,90
+Trajetória,indicadores_trajetoria_educacao_superior_2019_2024.xlsx,QT_PERMANENCIA,3876,0,0.0,174,inteiro,,0,89
+Trajetória,indicadores_trajetoria_educacao_superior_2019_2024.xlsx,QT_CONCLUINTE,3876,0,0.0,64,inteiro,,0,1
+Trajetória,indicadores_trajetoria_educacao_superior_2019_2024.xlsx,QT_DESISTENCIA,3876,0,0.0,95,inteiro,,0,0
+Trajetória,indicadores_trajetoria_educacao_superior_2019_2024.xlsx,QT_FALECIDO,3876,0,0.0,2,inteiro,,0,0
+Trajetória,indicadores_trajetoria_educacao_superior_2019_2024.xlsx,TAP,3876,0,0.0,1509,decimal,,0,98.88888889
+Trajetória,indicadores_trajetoria_educacao_superior_2019_2024.xlsx,TCA,3876,0,0.0,881,decimal,,0,1.111111111
+Trajetória,indicadores_trajetoria_educacao_superior_2019_2024.xlsx,TDA,3876,0,0.0,1365,decimal,,0,0
+Trajetória,indicadores_trajetoria_educacao_superior_2019_2024.xlsx,TCAN,3876,0,0.0,701,decimal,,0,1.111111111
+Trajetória,indicadores_trajetoria_educacao_superior_2019_2024.xlsx,TADA,3876,0,0.0,928,decimal,,0,0
+Trajetória,indicadores_trajetoria_educacao_superior_2020_2024.xlsx,CO_IES,3105,0,0.0,60,código (guardar como texto),,0,1
+Trajetória,indicadores_trajetoria_educacao_superior_2020_2024.xlsx,NO_IES,3105,0,0.0,60,texto,,0,UNIVERSIDADE FEDERAL DE MATO GROSSO
+Trajetória,indicadores_trajetoria_educacao_superior_2020_2024.xlsx,TP_CATEGORIA_ADMINISTRATIVA,3105,0,0.0,4,categoria codificada,,0,1
+Trajetória,indicadores_trajetoria_educacao_superior_2020_2024.xlsx,TP_ORGANIZACAO_ACADEMICA,3105,0,0.0,4,categoria codificada,,0,1
+Trajetória,indicadores_trajetoria_educacao_superior_2020_2024.xlsx,CO_CURSO,3105,0,0.0,621,código (guardar como texto),,0,1
+Trajetória,indicadores_trajetoria_educacao_superior_2020_2024.xlsx,NO_CURSO,3105,0,0.0,111,texto,,0,DIREITO
+Trajetória,indicadores_trajetoria_educacao_superior_2020_2024.xlsx,CO_REGIAO,3105,0,0.0,1,código (guardar como texto),,0,5
+Trajetória,indicadores_trajetoria_educacao_superior_2020_2024.xlsx,CO_UF,3105,0,0.0,1,código (guardar como texto),,0,51
+Trajetória,indicadores_trajetoria_educacao_superior_2020_2024.xlsx,CO_MUNICIPIO,3105,0,0.0,31,código (guardar como texto),,0,5103403
+Trajetória,indicadores_trajetoria_educacao_superior_2020_2024.xlsx,TP_GRAU_ACADEMICO,3105,0,0.0,3,categoria codificada,,0,1
+Trajetória,indicadores_trajetoria_educacao_superior_2020_2024.xlsx,TP_MODALIDADE_ENSINO,3105,0,0.0,1,categoria codificada,,0,1
+Trajetória,indicadores_trajetoria_educacao_superior_2020_2024.xlsx,CO_CINE_ROTULO,3105,0,0.0,101,texto,,0,0421D01
+Trajetória,indicadores_trajetoria_educacao_superior_2020_2024.xlsx,NO_CINE_ROTULO,3105,0,0.0,100,texto,,0,Direito
+Trajetória,indicadores_trajetoria_educacao_superior_2020_2024.xlsx,CO_CINE_AREA_GERAL,3105,0,0.0,10,código (guardar como texto),,0,04
+Trajetória,indicadores_trajetoria_educacao_superior_2020_2024.xlsx,NO_CINE_AREA_GERAL,3105,0,0.0,10,texto,,0,"Negócios, administração e direito"
+Trajetória,indicadores_trajetoria_educacao_superior_2020_2024.xlsx,NU_ANO_INGRESSO,3105,0,0.0,1,inteiro,,0,2020
+Trajetória,indicadores_trajetoria_educacao_superior_2020_2024.xlsx,NU_ANO_REFERENCIA,3105,0,0.0,5,inteiro,,0,2020
+Trajetória,indicadores_trajetoria_educacao_superior_2020_2024.xlsx,NU_PRAZO_INTEGRALIZACAO,3105,0,0.0,5,inteiro,,0,6
+Trajetória,indicadores_trajetoria_educacao_superior_2020_2024.xlsx,NU_ANO_INTEGRALIZACAO,3105,0,0.0,5,inteiro,,0,2025
+Trajetória,indicadores_trajetoria_educacao_superior_2020_2024.xlsx,NU_PRAZO_ACOMPANHAMENTO,3105,0,0.0,7,inteiro,,0,10
+Trajetória,indicadores_trajetoria_educacao_superior_2020_2024.xlsx,NU_ANO_MAXIMO_ACOMPANHAMENTO,3105,0,0.0,7,inteiro,,0,2029
+Trajetória,indicadores_trajetoria_educacao_superior_2020_2024.xlsx,QT_INGRESSANTE,3105,0,0.0,133,inteiro,,0,100
+Trajetória,indicadores_trajetoria_educacao_superior_2020_2024.xlsx,QT_PERMANENCIA,3105,0,0.0,137,inteiro,,0,100
+Trajetória,indicadores_trajetoria_educacao_superior_2020_2024.xlsx,QT_CONCLUINTE,3105,0,0.0,46,inteiro,,0,0
+Trajetória,indicadores_trajetoria_educacao_superior_2020_2024.xlsx,QT_DESISTENCIA,3105,0,0.0,83,inteiro,,0,0
+Trajetória,indicadores_trajetoria_educacao_superior_2020_2024.xlsx,QT_FALECIDO,3105,0,0.0,2,inteiro,,0,0
+Trajetória,indicadores_trajetoria_educacao_superior_2020_2024.xlsx,TAP,3105,0,0.0,1004,decimal,,0,100
+Trajetória,indicadores_trajetoria_educacao_superior_2020_2024.xlsx,TCA,3105,0,0.0,580,decimal,,0,0
+Trajetória,indicadores_trajetoria_educacao_superior_2020_2024.xlsx,TDA,3105,0,0.0,940,decimal,,0,0
+Trajetória,indicadores_trajetoria_educacao_superior_2020_2024.xlsx,TCAN,3105,0,0.0,476,decimal,,0,0
+Trajetória,indicadores_trajetoria_educacao_superior_2020_2024.xlsx,TADA,3105,0,0.0,700,decimal,,0,0

@@ -80,6 +80,39 @@ Os nomes das colunas vêm com espaço no começo e asteriscos no fim (`' Código
 
 JSON da API de agregados, 2,4 MB, população residente por idade para os municípios de MT. O município vem em `localidade.id` com 7 dígitos, igual ao `CO_MUNICIPIO` do Censo. A estrutura é aninhada (variável → classificações → séries), então precisa ser achatada antes de carregar.
 
+### Tipos e vazios por coluna
+
+Medido no recorte de MT, coluna a coluna, pelo script `src/03b_exploracao_tipos_nulos.py`; o resultado completo está em `src/outputs/exploracao_tipos_nulos.csv`.
+
+**Tipos.** Todos os arquivos chegam como texto. O tipo de destino na camada `staging` é:
+
+| Grupo de colunas | Exemplos | Tipo no `staging` |
+|---|---|---|
+| Códigos | `CO_CURSO`, `CO_IES`, `CO_MUNICIPIO`, `CO_CINE_AREA_GERAL`, `Código do Curso` | Texto. `CO_CINE_AREA_GERAL` tem zero à esquerda (`04`), que se perderia como número. |
+| Categorias codificadas | `TP_REDE`, `TP_MODALIDADE_ENSINO`, `TP_GRAU_ACADEMICO`, `TP_CATEGORIA_ADMINISTRATIVA` | Inteiro pequeno, com tabela de descrição. |
+| Anos e prazos | `NU_ANO_CENSO`, `NU_ANO_INGRESSO`, `NU_ANO_REFERENCIA`, `NU_PRAZO_INTEGRALIZACAO` | Inteiro. |
+| Quantidades | `QT_MAT`, `QT_ING`, `QT_VG_TOTAL`, `QT_SIT_DESVINCULADO`, `QT_ING_FIES`, `QT_INGRESSANTE`, `QT_DESISTENCIA` | Inteiro. |
+| Taxas e notas | `TAP`, `TCA`, `TDA`, `TADA`, `CPC (Contínuo)`, percentual de proficiência do Enade | Decimal, com ponto como separador. As taxas da Trajetória vêm com até 9 casas (`98.97959184`). |
+| Faixas de conceito | `CPC (Faixa)`, `IGC (Faixa)`, `Conceito Enade (Faixa)` | Inteiro de 1 a 5, com nulo para "sem conceito". |
+| Nomes | `NO_CURSO`, `NO_IES`, `Área de Avaliação` | Texto. |
+
+Nas planilhas de qualidade, categoria e modalidade vêm por extenso (`Pública Federal`, `Educação Presencial`), e não em código como no Censo e na Trajetória. A comparação entre as bases usa o código do curso, não esses textos.
+
+**Vazios e valores fora do tipo.**
+
+| Base | O que encontramos em MT | Como tratamos |
+|---|---|---|
+| Trajetória (6 turmas) | Nenhuma célula vazia nas 31 colunas. | Nada a tratar. |
+| Censo cursos 2021–2024 | Nenhum vazio nas chaves nem nas quantidades. `TP_GRAU_ACADEMICO` vazio em 3 linhas (2021), 0 (2022), 30 (2023) e 38 (2024). | Linha mantida, grau como "não informado". |
+| Censo cursos 2021–2024 | `CO_CINE_ROTULO` vem com aspas dentro do valor (`"0413A01"`) em 100% das linhas; na Trajetória vem sem aspas (`0421D01`). | Remover as aspas no `staging`. |
+| CPC 2021 / 2022 / 2023 | `CPC (Faixa)` traz o texto `SC` (sem conceito) em 6 de 155, 24 de 165 e 11 de 238 cursos; nesses, `CPC (Contínuo)` está vazio. | `SC` vira nulo; o curso sai da P4 e a contagem é informada. |
+| CPC 2021 / 2023 | Nota do IDD vazia em 17 (11,0%) e 22 (9,2%) cursos. | Só afeta análise do IDD, não a P4. |
+| Enade Licenciaturas | Percentual de proficiência vazio em 6 de 97 cursos, e faixa `SC` também em 6; participantes vazio em 4. | Fora da P5, com a contagem informada. |
+| IGC 2021–2023 | Faixa `SC` em 1 instituição (2023); conceitos de mestrado e doutorado vazios em quem não tem pós. | `SC` vira nulo; colunas de pós não são usadas. |
+| Todas as planilhas de qualidade | `Sigla da IES` vazia em 8% a 22% das linhas. | Usar o nome ou o código da IES, nunca a sigla. |
+
+Consequência para a cobertura: dos 558 cursos de MT com linha no CPC, parte está sem conceito em cada edição, então o número de cursos que entra na P4 é menor que os 528 com par na Trajetória. O valor exato sai na Fase 2, depois de descartar os `SC`.
+
 ### Achados que mudam a estratégia
 
 1. **A linha do Censo de cursos não é "curso × ano".** É curso × município × ano. Em MT 2024, 18.315 linhas representam 3.890 cursos: 14.425 linhas repetem um `CO_CURSO` já visto. Juntar com a Trajetória por `CO_CURSO` sem agregar antes multiplica os números.
