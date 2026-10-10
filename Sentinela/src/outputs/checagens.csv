@@ -1,0 +1,10 @@
+﻿checagem,esperado,encontrado,ok
+Trajetória: linhas de MT em raw e em staging são iguais,26513,26513,True
+Trajetória: cursos distintos de MT (exploração mediu 784),784,784,True
+Trajetória: linhas em que TAP + TCA + TDA não fecha 100,0,0,True
+Trajetória: linhas em que seguem + concluíram + desistiram + faleceram difere de ingressantes,0,0,True
+Trajetória: linhas em que a desistência acumulada calculada difere da TDA do INEP,0,0,True
+"Trajetória: códigos de curso, município ou área nulos",0,0,True
+P1: ingressantes da turma de 2015 presencial (exploração mediu 41.918),41918,41918,True
+P1: contagens publicadas abaixo de 10 alunos,0,0,True
+P2: cursos publicados com menos de 10 ingressantes,0,0,True

@@ -1,0 +1,29 @@
+executado_em,tabela,perguntas,arquivo,colunas,linhas_lidas,linhas_carregadas,so_mt,no_banco_antes,no_banco_depois
+2026-10-10T11:36:43,raw.trajetoria,"P1, P2, P4, P5",indicadores_trajetoria_educacao_superior_2015_2024.xlsx,31,281431,5150,True,0,5150
+2026-10-10T11:36:43,raw.trajetoria,"P1, P2, P4, P5",indicadores_trajetoria_educacao_superior_2016_2024.xlsx,31,263179,5157,True,0,5157
+2026-10-10T11:36:43,raw.trajetoria,"P1, P2, P4, P5",indicadores_trajetoria_educacao_superior_2017_2024.xlsx,31,247201,4864,True,0,4864
+2026-10-10T11:36:43,raw.trajetoria,"P1, P2, P4, P5",indicadores_trajetoria_educacao_superior_2018_2024.xlsx,31,230210,4361,True,0,4361
+2026-10-10T11:36:43,raw.trajetoria,"P1, P2, P4, P5",indicadores_trajetoria_educacao_superior_2019_2024.xlsx,31,206809,3876,True,0,3876
+2026-10-10T11:36:43,raw.trajetoria,"P1, P2, P4, P5",indicadores_trajetoria_educacao_superior_2020_2024.xlsx,31,174241,3105,True,0,3105
+2026-10-10T11:36:43,raw.censo_cursos,P3,MICRODADOS_CADASTRO_CURSOS_2021.CSV,200,444786,12278,True,0,12278
+2026-10-10T11:36:43,raw.censo_cursos,P3,MICRODADOS_CADASTRO_CURSOS_2022.CSV,200,573019,15059,True,0,15059
+2026-10-10T11:36:43,raw.censo_cursos,P3,MICRODADOS_CADASTRO_CURSOS_2023.CSV,202,671610,17022,True,0,17022
+2026-10-10T11:36:43,raw.censo_cursos,P3,MICRODADOS_CADASTRO_CURSOS_2024.CSV,223,720349,18315,True,0,18315
+2026-10-10T11:36:43,raw.cpc,P4,CPC_2021.xlsx,40,8000,155,True,0,155
+2026-10-10T11:36:43,raw.cpc,P4,cpc_2022.xlsx,39,9891,165,True,0,165
+2026-10-10T11:36:43,raw.cpc,P4,CPC_2023.xlsx,39,9812,238,True,0,238
+2026-10-10T11:36:43,raw.enade_licenciaturas,P5,conceito_enade_licenciaturas.xlsx,20,4950,97,True,0,97
+2026-10-10T11:45:03,raw.trajetoria,"P1, P2, P4, P5",indicadores_trajetoria_educacao_superior_2015_2024.xlsx,31,281431,5150,True,5150,5150
+2026-10-10T11:45:03,raw.trajetoria,"P1, P2, P4, P5",indicadores_trajetoria_educacao_superior_2016_2024.xlsx,31,263179,5157,True,5157,5157
+2026-10-10T11:45:03,raw.trajetoria,"P1, P2, P4, P5",indicadores_trajetoria_educacao_superior_2017_2024.xlsx,31,247201,4864,True,4864,4864
+2026-10-10T11:45:03,raw.trajetoria,"P1, P2, P4, P5",indicadores_trajetoria_educacao_superior_2018_2024.xlsx,31,230210,4361,True,4361,4361
+2026-10-10T11:45:03,raw.trajetoria,"P1, P2, P4, P5",indicadores_trajetoria_educacao_superior_2019_2024.xlsx,31,206809,3876,True,3876,3876
+2026-10-10T11:45:03,raw.trajetoria,"P1, P2, P4, P5",indicadores_trajetoria_educacao_superior_2020_2024.xlsx,31,174241,3105,True,3105,3105
+2026-10-10T11:45:03,raw.censo_cursos,P3,MICRODADOS_CADASTRO_CURSOS_2021.CSV,200,444786,12278,True,12278,12278
+2026-10-10T11:45:03,raw.censo_cursos,P3,MICRODADOS_CADASTRO_CURSOS_2022.CSV,200,573019,15059,True,15059,15059
+2026-10-10T11:45:03,raw.censo_cursos,P3,MICRODADOS_CADASTRO_CURSOS_2023.CSV,202,671610,17022,True,17022,17022
+2026-10-10T11:45:03,raw.censo_cursos,P3,MICRODADOS_CADASTRO_CURSOS_2024.CSV,223,720349,18315,True,18315,18315
+2026-10-10T11:45:03,raw.cpc,P4,CPC_2021.xlsx,40,8000,155,True,155,155
+2026-10-10T11:45:03,raw.cpc,P4,cpc_2022.xlsx,39,9891,165,True,165,165
+2026-10-10T11:45:03,raw.cpc,P4,CPC_2023.xlsx,39,9812,238,True,238,238
+2026-10-10T11:45:03,raw.enade_licenciaturas,P5,conceito_enade_licenciaturas.xlsx,20,4950,97,True,97,97
