@@ -1,3 +1,7 @@
+# Dados brutos (não vão para o Git: o GitHub recusa arquivos acima de 100 MB)
+Dados/
+data/
+
 # Python
 __pycache__/
 *.py[cod]
