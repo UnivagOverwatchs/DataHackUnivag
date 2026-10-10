@@ -8,3 +8,12 @@ Trajetória: linhas em que a desistência acumulada calculada difere da TDA do I
 P1: ingressantes da turma de 2015 presencial (exploração mediu 41.918),41918,41918,True
 P1: contagens publicadas abaixo de 10 alunos,0,0,True
 P2: cursos publicados com menos de 10 ingressantes,0,0,True
+Censo: matrículas de MT em raw e em staging são iguais (2021 a 2024),742787,742787,True
+Censo: matrículas de MT em 2024 (exploração mediu 189.869),189869,189869,True
+Censo: cursos distintos de MT em 2024 (exploração mediu 3.890),3890,3890,True
+P3: contagens publicadas abaixo de 10 alunos,0,0,True
+CPC: cursos de MT em raw e em staging são iguais,558,558,True
+P4: cursos publicados com menos de 10 ingressantes,0,0,True
+Enade Licenciaturas: cursos de MT em raw e em staging são iguais,97,97,True
+P5: licenciaturas de MT na Trajetória (exploração mediu 129),129,129,True
+"P5: cursos, áreas ou turmas publicados com contagem abaixo de 10",0,0,True

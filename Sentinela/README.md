@@ -37,6 +37,15 @@ PostgreSQL 18 · Python (pandas, openpyxl, psycopg) · Power BI. A justificativa
 
 ## Respostas
 
-| Pergunta | Onde está |
-|---|---|
-| P1 a P5, B1 | A preencher nas Fases 2 e 3 |
+Recorte: Mato Grosso. Os números saem de `src/outputs/` e são refeitos por `python src/05_transformacao.py`.
+
+| Pergunta | Resposta | Tabela em `src/outputs/` |
+|---|---|---|
+| P1 — Quanto da turma fica pelo caminho? | Turma de 2015, presencial (41.918 ingressantes): em 2024, de cada 100, 59,9 desistiram, 38,8 concluíram e 1,3 seguiam no curso. A maior perda é no 2º ano (2016): 16,7% da turma. | `p1_coorte_2015.csv` |
+| P2 — Onde a rota mais se perde? | Desistência por área, por curso e ranking no 5º ano do curso, o último que as seis turmas alcançam. | `p2_desistencia_area.csv`, `p2_desistencia_curso.csv`, `p2_ranking_curso.csv` |
+| P3 — Pública × privada, presencial × EAD | Evasão anual em 2024: privada EAD 33,9%, privada presencial 18,8%, pública EAD 5,3%, pública presencial 4,7%. Ano atípico: 2023 na rede pública (15,0% no presencial e 18,1% no EAD, contra 3 a 9% nos outros anos). | `p3_rede_modalidade.csv` |
+| P4 — Qualidade retém? | Pouco: a correlação entre CPC e desistência é fraca (−0,10, em 497 cursos). A rede separa mais os cursos (privada 61,7% × pública 34,3%) do que a faixa do CPC. | `p4_curso.csv`, `p4_fatores.csv`, `p4_correlacao.csv` |
+| P5 — O funil das licenciaturas | Turmas de 2015 a 2020: de cada 100, 53,6 desistiram, 31,6 concluíram e 14,8 seguiam em 2024. No Enade 2025, 54,7% dos concluintes participantes atingiram o padrão de proficiência. | `p5_funil_turma.csv`, `p5_enade_area.csv`, `p5_funil_resumo.csv`, `p5_curso.csv` |
+| B1, B2 | A fazer | — |
+
+Cobertura: a P4 usa os 497 cursos que têm CPC numérico e 10 ingressantes ou mais; a P5 cruza curso a curso apenas onde há 10 participantes ou mais no Enade.

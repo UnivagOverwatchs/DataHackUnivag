@@ -43,7 +43,46 @@ UNION ALL
 SELECT 'P2: cursos publicados com menos de 10 ingressantes',
        0,
        (SELECT count(*) FROM analytics.p2_desistencia_curso WHERE ingressantes < 10)
-       + (SELECT count(*) FROM analytics.p2_ranking_curso WHERE ingressantes < 10);
+       + (SELECT count(*) FROM analytics.p2_ranking_curso WHERE ingressantes < 10)
+UNION ALL
+SELECT 'Censo: matrículas de MT em raw e em staging são iguais (2021 a 2024)',
+       (SELECT sum(qt_mat::numeric) FROM raw.censo_cursos WHERE trim(co_uf) = '51'),
+       (SELECT sum(qt_mat) FROM staging.censo_cursos)
+UNION ALL
+SELECT 'Censo: matrículas de MT em 2024 (exploração mediu 189.869)',
+       189869,
+       (SELECT sum(matriculas) FROM analytics.p3_rede_modalidade WHERE ano = 2024)
+UNION ALL
+SELECT 'Censo: cursos distintos de MT em 2024 (exploração mediu 3.890)',
+       3890,
+       (SELECT count(*) FROM staging.censo_cursos WHERE ano = 2024)
+UNION ALL
+SELECT 'P3: contagens publicadas abaixo de 10 alunos',
+       0,
+       (SELECT count(*) FROM analytics.p3_rede_modalidade
+         WHERE least(matriculas, ingressantes, concluintes, trancados, desvinculados) < 10)
+UNION ALL
+SELECT 'CPC: cursos de MT em raw e em staging são iguais',
+       (SELECT count(DISTINCT trim(codigo_do_curso)) FROM raw.cpc WHERE trim(sigla_da_uf) = 'MT'),
+       (SELECT count(*) FROM staging.cpc)
+UNION ALL
+SELECT 'P4: cursos publicados com menos de 10 ingressantes',
+       0,
+       (SELECT count(*) FROM analytics.p4_curso WHERE ingressantes < 10)
+UNION ALL
+SELECT 'Enade Licenciaturas: cursos de MT em raw e em staging são iguais',
+       (SELECT count(*) FROM raw.enade_licenciaturas WHERE trim(sigla_da_uf) = 'MT'),
+       (SELECT count(*) FROM staging.enade_licenciaturas)
+UNION ALL
+SELECT 'P5: licenciaturas de MT na Trajetória (exploração mediu 129)',
+       129,
+       (SELECT count(DISTINCT co_curso) FROM staging.trajetoria WHERE grau = 'Licenciatura')
+UNION ALL
+SELECT 'P5: cursos, áreas ou turmas publicados com contagem abaixo de 10',
+       0,
+       (SELECT count(*) FROM analytics.p5_curso WHERE ingressantes < 10 OR concluintes_participantes < 10)
+       + (SELECT count(*) FROM analytics.p5_enade_area WHERE concluintes_participantes < 10)
+       + (SELECT count(*) FROM analytics.p5_funil_turma WHERE least(desistiram, concluiram, seguem_no_curso) < 10);
 
 ALTER TABLE analytics.checagens ADD COLUMN ok boolean;
 UPDATE analytics.checagens SET ok = (esperado = encontrado);
