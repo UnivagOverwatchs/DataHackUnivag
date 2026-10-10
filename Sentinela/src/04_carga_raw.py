@@ -1,4 +1,4 @@
-"""Fase 2 - carga das bases no PostgreSQL (schema raw), só o que as perguntas P1 a P5 usam.
+"""Fase 2 - carga das bases no PostgreSQL (schema raw): as de P1 a P5, as de apoio e o IBGE do B1.
 
 Uso:  python src/04_carga_raw.py                 carrega tudo (cópia fiel, Brasil inteiro)
       python src/04_carga_raw.py --so-mt         carrega só as linhas de Mato Grosso (mais rápido)
@@ -11,6 +11,7 @@ O acesso ao banco vem do .env (PGHOST, PGPORT, PGDATABASE, PGUSER, PGPASSWORD).
 """
 import argparse
 import csv
+import json
 import re
 import unicodedata
 from datetime import datetime
@@ -52,6 +53,40 @@ FONTES = {
         "padrao": "conceito_enade_licenciaturas.xlsx",
         "linha_cabecalho": 1,
         "filtro_mt": ("sigla_da_uf", "MT"),
+    },
+    "censo_ies": {
+        "perguntas": "apoio (sede da IES)",
+        "pasta": "INEP/censo_superior",
+        "padrao": "MICRODADOS_*IES_*.CSV",  # o nome muda de CADASTRO_IES para ED_SUP_IES em 2022
+        "anos": ANOS_CENSO,
+        "filtro_mt": ("co_uf_ies", "51"),
+    },
+    "igc": {
+        "perguntas": "apoio (qualidade da IES)",
+        "pasta": "INEP/indicadores_qualidade",
+        "padrao": "[Ii][Gg][Cc]_*.xlsx",
+        "linha_cabecalho": 1,
+        "filtro_mt": ("sigla_da_uf", "MT"),
+    },
+    "idd": {
+        "perguntas": "apoio (P4)",
+        "pasta": "INEP/indicadores_qualidade",
+        "padrao": "[Ii][Dd][Dd]_*.xlsx",
+        "linha_cabecalho": 1,
+        "filtro_mt": ("sigla_da_uf", "MT"),
+    },
+    "enade": {
+        "perguntas": "apoio (P4)",
+        "pasta": "INEP/indicadores_qualidade",
+        "padrao": "conceito_enade_20*.xlsx",
+        "linha_cabecalho": 1,
+        "filtro_mt": ("sigla_da_uf", "MT"),
+    },
+    "ibge_populacao": {
+        "perguntas": "B1",
+        "pasta": "IBGE/sidra",
+        "padrao": "tabela_9514_populacao_*.json",
+        "filtro_mt": ("co_uf", "51"),
     },
 }
 
@@ -108,6 +143,26 @@ def ler_xlsx(arquivo, linha_cabecalho):
     return colunas, linhas()
 
 
+def ler_json_sidra(arquivo):
+    """JSON da API de agregados do IBGE: achata variável -> classificações -> séries em linhas."""
+    dados = json.loads(arquivo.read_text(encoding="utf-8"))
+    classificacoes = [c["nome"] for c in dados[0]["resultados"][0]["classificacoes"]]
+    colunas = nomes_colunas(["variavel_id", "variavel", "unidade", *classificacoes,
+                             "co_uf", "co_municipio", "localidade", "nivel", "ano", "valor"])
+
+    def linhas():
+        for variavel in dados:
+            for resultado in variavel["resultados"]:
+                categorias = [next(iter(c["categoria"].values())) for c in resultado["classificacoes"]]
+                for serie in resultado["series"]:
+                    local = serie["localidade"]
+                    for ano, valor in serie["serie"].items():
+                        yield [variavel["id"], variavel["variavel"], variavel["unidade"], *categorias,
+                               local["id"][:2], local["id"], local["nome"], local["nivel"]["id"], ano, valor]
+
+    return colunas, linhas()
+
+
 def arquivos_da_fonte(fonte):
     arquivos = sorted((DADOS / fonte["pasta"]).glob(fonte["padrao"]))
     if "anos" in fonte:
@@ -118,6 +173,8 @@ def arquivos_da_fonte(fonte):
 def ler(arquivo, fonte):
     if arquivo.suffix.lower() == ".csv":
         return ler_csv(arquivo)
+    if arquivo.suffix.lower() == ".json":
+        return ler_json_sidra(arquivo)
     return ler_xlsx(arquivo, fonte["linha_cabecalho"])
 
 
@@ -189,7 +246,7 @@ def gravar_contagem(registros):
 
 
 def main():
-    p = argparse.ArgumentParser(description="Carga das bases de P1 a P5 no schema raw.")
+    p = argparse.ArgumentParser(description="Carga das bases no schema raw.")
     p.add_argument("--fontes", nargs="+", choices=list(FONTES), default=list(FONTES))
     p.add_argument("--so-mt", action="store_true", help="carrega só as linhas de Mato Grosso")
     p.add_argument("--simular", action="store_true", help="lê e conta, sem tocar no banco")

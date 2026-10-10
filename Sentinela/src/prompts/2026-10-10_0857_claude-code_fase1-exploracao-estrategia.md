@@ -22,12 +22,12 @@
 
 ## Decisões da equipe (a IA perguntou, nós escolhemos)
 
-| Decisão | O que a IA recomendou | O que escolhemos | Por quê |
-|---|---|---|---|
-| Banco | DuckDB (lê CSV e xlsx sem servidor) | PostgreSQL | A equipe domina; COPY, schemas para as camadas e transação para a carga |
-| Dashboard | Não recomendou | Power BI lendo os CSV de `src/outputs/` | Abre no pitch sem o banco local |
-| Papel da IA | Criar os arquivos | Primeiro só o roteiro; depois autorizamos executar | Entender o plano antes de aceitar código |
-| Commit e push | — | Feitos por nós; só o commit deste registro foi pela IA, a pedido | Controle do que entra no repositório |
+| Decisão       | O que a IA recomendou               | O que escolhemos                                                 | Por quê                                                                 |
+| ------------- | ----------------------------------- | ---------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| Banco         | DuckDB (lê CSV e xlsx sem servidor) | PostgreSQL                                                       | A equipe domina; COPY, schemas para as camadas e transação para a carga |
+| Dashboard     | Não recomendou                      | Power BI lendo os CSV de `src/outputs/`                          | Abre no pitch sem o banco local                                         |
+| Papel da IA   | Criar os arquivos                   | Primeiro só o roteiro; depois autorizamos executar               | Entender o plano antes de aceitar código                                |
+| Commit e push | —                                   | Feitos por nós; só o commit deste registro foi pela IA, a pedido | Controle do que entra no repositório                                    |
 
 ## O que a IA fez
 
@@ -76,14 +76,15 @@
 ## O que a IA não fez nesta sessão
 
 ### Ambiente
+
 - Não criou o repositório no GitHub nem convidou os integrantes.
-- Não instalou o Python nem o PostgreSQL; apontou que o Python faltava e a
-  instalação foi feita por nós.
+- Não instalou o Python nem o PostgreSQL; apontou que o Python faltava
 - Não criou o arquivo `.env` nem digitou usuário ou senha do banco.
 - Até o registro desta sessão, não fez commit nem push; só passou os comandos.
   O commit deste arquivo foi feito pela IA, a pedido.
 
 ### Banco de dados
+
 - Não criou o banco `sentinela`.
 - Não criou os schemas `raw`, `staging` e `analytics`: escreveu o arquivo
   `src/sql/00_schemas.sql`, mas não rodou.
@@ -93,6 +94,7 @@
 - Não carregou dado nenhum: o script `04_carga_raw.py` não é desta sessão.
 
 ### Transformação e respostas
+
 - Não escreveu os SQL de `staging` (`10`, `11`, `12`), os de `analytics`
   (`20` a `24`) nem o de checagens (`90`).
 - Não escreveu o `05_transformacao.py`.
@@ -101,6 +103,7 @@
 - Não conferiu se os números das respostas estão corretos.
 
 ### Documentos e dados
+
 - Não baixou as bases (sessão registrada em
   `2026-10-10_0945_claude-code_download-bases.md`).
 - Não escreveu `doc/arquitetura.md`, `doc/entrega1.md` nem

@@ -82,7 +82,24 @@ SELECT 'P5: cursos, áreas ou turmas publicados com contagem abaixo de 10',
        0,
        (SELECT count(*) FROM analytics.p5_curso WHERE ingressantes < 10 OR concluintes_participantes < 10)
        + (SELECT count(*) FROM analytics.p5_enade_area WHERE concluintes_participantes < 10)
-       + (SELECT count(*) FROM analytics.p5_funil_turma WHERE least(desistiram, concluiram, seguem_no_curso) < 10);
+       + (SELECT count(*) FROM analytics.p5_funil_turma WHERE least(desistiram, concluiram, seguem_no_curso) < 10)
+UNION ALL
+-- Taxa de junção: quantos dos 784 cursos da Trajetória acham par em cada base (medido na exploração).
+SELECT 'Junção: cursos da Trajetória com par no Censo 2021–2024 (exploração mediu 717 de 784, 91,5%)',
+       717,
+       (SELECT count(DISTINCT t.co_curso) FROM staging.trajetoria t
+         WHERE EXISTS (SELECT 1 FROM staging.censo_cursos c WHERE c.co_curso = t.co_curso))
+UNION ALL
+SELECT 'Junção: cursos da Trajetória com par no CPC 2021–2023 (exploração mediu 528 de 784, 67,3%)',
+       528,
+       (SELECT count(DISTINCT t.co_curso) FROM staging.trajetoria t
+         WHERE EXISTS (SELECT 1 FROM staging.cpc c WHERE c.co_curso = t.co_curso))
+UNION ALL
+SELECT 'Junção: licenciaturas da Trajetória com par no Enade Licenciaturas (exploração mediu 75 de 129, 58,1%)',
+       75,
+       (SELECT count(DISTINCT t.co_curso) FROM staging.trajetoria t
+         WHERE t.grau = 'Licenciatura'
+           AND EXISTS (SELECT 1 FROM staging.enade_licenciaturas e WHERE e.co_curso = t.co_curso));
 
 ALTER TABLE analytics.checagens ADD COLUMN ok boolean;
 UPDATE analytics.checagens SET ok = (esperado = encontrado);

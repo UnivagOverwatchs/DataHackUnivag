@@ -22,7 +22,7 @@ flowchart LR
 
 | Camada | Quem cria | O que tem | Regra |
 |---|---|---|---|
-| `raw` | `src/04_carga_raw.py` | Uma tabela por fonte: `trajetoria`, `censo_cursos`, `cpc`, `enade_licenciaturas` | Todas as colunas como texto, com `arquivo_origem` e `carregado_em`. Nada é corrigido. |
+| `raw` | `src/04_carga_raw.py` | Uma tabela por fonte. Das perguntas: `trajetoria`, `censo_cursos`, `cpc`, `enade_licenciaturas`. De apoio: `censo_ies`, `igc`, `idd`, `enade`. Do bônus B1: `ibge_populacao` | Todas as colunas como texto, com `arquivo_origem` e `carregado_em`. Nada é corrigido. O JSON do IBGE é só achatado em linhas. |
 | `staging` | `src/sql/10_` a `12_*.sql` | `trajetoria`, `censo_cursos` (já agregado para curso × ano), `cpc` e `enade_licenciaturas` | Só MT, tipos corrigidos, códigos como texto, nomes iguais entre os anos. |
 | `analytics` | `src/sql/20_*.sql` | Uma ou mais tabelas por pergunta, mais `checagens` | Já agregada e com o sigilo aplicado. É o que vai para `src/outputs/`. |
 
@@ -88,4 +88,6 @@ Os SQL rodam na ordem do número no nome do arquivo: `00_` schemas, `10_` a `12_
 
 ## 7. Dashboard fora do laboratório
 
-O Power BI lê os CSV de `src/outputs/`, que vão para o Git. O banco não precisa estar acessível na hora do pitch.
+O dashboard lê os CSV de `src/outputs/`, que vão para o Git. O banco não precisa estar acessível na hora do pitch.
+
+O protótipo é uma página HTML com os dados embutidos, `src/dashboard/prototipo.html`, gerada por `python src/06_prototipo_dashboard.py`. Abre em qualquer navegador, sem banco e sem internet. As telas e a origem de cada uma estão em [plano_dashboard.md](plano_dashboard.md).

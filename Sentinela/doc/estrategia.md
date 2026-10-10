@@ -150,7 +150,7 @@ Leitura:
 
 | Schema | Conteúdo | Regra |
 |---|---|---|
-| `raw` | Cópia fiel de cada arquivo | Todas as colunas como texto, mais `arquivo_origem` e `carregado_em`. Nada é corrigido aqui. |
+| `raw` | Cópia fiel de cada arquivo | Todas as colunas como texto, mais `arquivo_origem` e `carregado_em`. Nada é corrigido aqui. Na execução, carregamos só as linhas de Mato Grosso (opção `--so-mt`), porque o Censo completo passa de 1 GB; o script também carrega o Brasil inteiro, sem a opção. |
 | `staging` | Dado limpo | Tipos corrigidos, códigos como texto, só MT, nomes de coluna iguais entre os anos. |
 | `analytics` | Uma tabela por pergunta (P1 a P5, B1) | Já agregada, com a regra de sigilo aplicada. Exportada para `src/outputs/`. |
 

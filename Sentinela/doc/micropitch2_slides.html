@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Micro-pitch 2 · Fase 2 · Equipe Sentinela</title>
+<style>
+@page { size: 960px 540px; margin: 0; }
+* { box-sizing: border-box; }
+html, body { margin: 0; background: #f5f3ee; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { font-family: Arial, Helvetica, sans-serif; color: #1c2a44; }
+.slide { width: 960px; height: 540px; padding: 62px 64px 0; overflow: hidden; page-break-after: always; break-after: page; background: #f5f3ee; position: relative; }
+.slide:last-child { page-break-after: auto; break-after: auto; }
+h1 { font-size: 36px; margin: 0 0 26px; font-weight: 700; }
+.capa { display: flex; flex-direction: column; justify-content: center; padding-top: 0; }
+.capa .sobre { color: #d9651f; font-weight: 700; font-size: 17px; letter-spacing: .06em; margin-bottom: 14px; }
+.capa h1 { font-size: 46px; margin: 0; line-height: 1.15; }
+.fila { display: flex; align-items: stretch; gap: 0; }
+.fila .seta { align-self: center; }
+.cartao { flex: 1; background: #fff; border: 1px solid #e6e2d8; border-radius: 10px; padding: 22px 20px; min-height: 200px; }
+.cartao.escuro { background: #1c2a44; border-color: #1c2a44; color: #fff; }
+.cartao.laranja { background: #d9651f; border-color: #d9651f; color: #fff; }
+.cartao .n { color: #d9651f; font-size: 38px; font-weight: 700; line-height: 1; margin-bottom: 12px; }
+.cartao.escuro .n { color: #f0a45f; }
+.cartao.laranja .n { color: #fff; }
+.cartao .t { font-size: 21px; font-weight: 700; line-height: 1.15; margin-bottom: 10px; }
+.cartao .d { font-size: 15px; line-height: 1.3; }
+.seta { width: 44px; text-align: center; color: #d9651f; font-size: 28px; flex: none; }
+.rodape { margin-top: 26px; font-size: 19px; }
+.rodape b { color: #d9651f; }
+.baixo { min-height: 150px; }
+.numero { font-size: 44px; font-weight: 700; line-height: 1; margin-bottom: 10px; color: #1c2a44; }
+.cartao.escuro .numero, .cartao.laranja .numero { color: #fff; }
+.espaco { gap: 14px; }
+.faixa { display: flex; gap: 12px; margin-bottom: 18px; }
+.faixa div { flex: 1; background: #1c2a44; color: #fff; border-radius: 8px; padding: 15px 10px; text-align: center; font-weight: 700; font-size: 17px; }
+.marca { color: #d9651f; font-weight: 700; font-size: 21px; margin: 0 0 16px; }
+@media screen { body { padding: 20px; } .slide { margin: 0 auto 20px; box-shadow: 0 1px 6px rgba(0,0,0,.15); } }
+</style>
+</head>
+<body>
+
+<section class="slide capa">
+  <div class="sobre">EQUIPE SENTINELA · MICRO-PITCH 2</div>
+  <h1>Fase 2: ingestão,<br>transformação e protótipo</h1>
+</section>
+
+<section class="slide">
+  <h1>O que fizemos desde o pitch 1</h1>
+  <div class="fila">
+    <div class="cartao"><div class="n">1</div><div class="t">Carga por código</div><div class="d">4 fontes no PostgreSQL, 89.842 linhas de Mato Grosso</div></div>
+    <div class="seta">→</div>
+    <div class="cartao"><div class="n">2</div><div class="t">Transformação em SQL</div><div class="d">3 camadas, 20 tabelas, tudo dentro do banco</div></div>
+    <div class="seta">→</div>
+    <div class="cartao escuro"><div class="n">3</div><div class="t">Checagens</div><div class="d">18 testes automáticos, todos passando</div></div>
+    <div class="seta">→</div>
+    <div class="cartao"><div class="n">4</div><div class="t">Protótipo</div><div class="d">5 telas, uma por pergunta, com a resposta no topo</div></div>
+  </div>
+  <p class="rodape"><b>Maior dificuldade:</b> a linha do Censo é curso × município, não curso × ano.</p>
+</section>
+
+<section class="slide">
+  <h1>Rodar duas vezes dá o mesmo resultado</h1>
+  <div class="fila">
+    <div class="cartao baixo"><div class="t">1ª carga</div><div class="numero">0 → 89.842</div><div class="d">linhas no banco, antes e depois</div></div>
+    <div class="seta">→</div>
+    <div class="cartao baixo escuro"><div class="t">2ª carga</div><div class="numero">89.842 → 89.842</div><div class="d">nada duplicou</div></div>
+  </div>
+  <p class="rodape"><b>Como:</b> cada arquivo é apagado e inserido de novo na mesma transação.</p>
+  <p class="rodape" style="margin-top:10px"><b>E a qualidade:</b> permanência + conclusão + desistência fecha 100 · nenhuma célula com menos de 10 alunos.</p>
+</section>
+
+<section class="slide">
+  <h1>Primeiras respostas</h1>
+  <div class="fila espaco">
+    <div class="cartao baixo"><div class="numero">59,9</div><div class="t">desistiram</div><div class="d">de cada 100 da turma de 2015; 38,8 concluíram</div></div>
+    <div class="cartao baixo"><div class="numero">2º ano</div><div class="t">maior perda</div><div class="d">16,7% da turma desiste nesse ano</div></div>
+    <div class="cartao baixo"><div class="numero">33,9%</div><div class="t">× 4,7%</div><div class="d">evasão anual em 2024: privada a distância × pública presencial</div></div>
+    <div class="cartao baixo laranja"><div class="numero">−0,10</div><div class="t">nota × desistência</div><div class="d">a nota do CPC tem associação fraca com a desistência</div></div>
+  </div>
+  <p class="rodape"><b>Recorte:</b> graduação em Mato Grosso · dados públicos do INEP.</p>
+</section>
+
+<section class="slide">
+  <h1>Do protótipo ao produto final</h1>
+  <div class="faixa"><div>A turma</div><div>Onde se perde</div><div>Rede e modalidade</div><div>Qualidade</div><div>Licenciaturas</div></div>
+  <p class="marca">↓ 5 telas prontas no protótipo</p>
+  <div class="fila">
+    <div class="cartao baixo"><div class="t">Bônus</div><div class="d">financiamento e permanência, com o Censo já carregado</div></div>
+    <div class="seta">→</div>
+    <div class="cartao baixo"><div class="t">Recomendações</div><div class="d">o que o gestor faz com cada resposta</div></div>
+    <div class="seta">→</div>
+    <div class="cartao baixo laranja"><div class="t">Pitch final</div><div class="d">dashboard que abre fora do laboratório, com plano B</div></div>
+  </div>
+</section>
+
+</body>
+</html>
