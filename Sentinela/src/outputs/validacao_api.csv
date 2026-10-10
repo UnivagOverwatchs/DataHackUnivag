@@ -1,0 +1,14 @@
+﻿tabela,linhas_csv,linhas_api,colunas_iguais,linhas_diferentes,ok,observacao
+analytics.checagens,18,18,True,0,True,
+analytics.p1_coorte_2015,10,10,True,0,True,
+analytics.p2_desistencia_area,450,450,True,0,True,
+analytics.p2_desistencia_curso,25332,1000,,,True,tabela maior que o limite da API (1000 linhas); comparado só o corte
+analytics.p2_ranking_curso,765,765,True,0,True,
+analytics.p3_rede_modalidade,16,16,True,0,True,
+analytics.p4_correlacao,9,9,True,0,True,
+analytics.p4_curso,497,497,True,0,True,
+analytics.p4_fatores,20,20,True,0,True,
+analytics.p5_curso,41,41,True,0,True,
+analytics.p5_enade_area,15,15,True,0,True,
+analytics.p5_funil_resumo,5,5,True,0,True,
+analytics.p5_funil_turma,7,7,True,0,True,

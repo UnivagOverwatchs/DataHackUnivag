@@ -141,6 +141,7 @@ svg text { fill: var(--text-2); font-size: 12px; }
       <div id="p5-area"></div>
     </div>
   </section>
+  <p class="nota" id="fonte"></p>
 </main>
 <div id="dica"></div>
 
@@ -258,6 +259,7 @@ barras("p5-funil", funil, {rotulo: l => l.etapa, valor: l => l.de_cada_100, dica
 barras("p5-area", D.p5_area.filter(l => l.area !== "Todas").sort((a, b) => b.pct - a.pct),
   {rotulo: l => l.area, valor: l => l.pct, cor: "var(--s3)", dica: l => `${l.area}: ${pct(l.pct)} de ${int(l.participantes)} participantes em ${l.cursos} cursos`});
 
+$("fonte").textContent = D.fonte || "";
 let inicial = "p1";
 try { inicial = localStorage.getItem("aba") || "p1"; } catch (e) {}
 abrir(abas.some(([a]) => a === inicial) ? inicial : "p1");

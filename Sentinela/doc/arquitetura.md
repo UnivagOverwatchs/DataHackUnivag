@@ -88,6 +88,17 @@ Os SQL rodam na ordem do número no nome do arquivo: `00_` schemas, `10_` a `12_
 
 ## 7. Dashboard fora do laboratório
 
-O dashboard lê os CSV de `src/outputs/`, que vão para o Git. O banco não precisa estar acessível na hora do pitch.
+O dashboard tem duas fontes para a mesma camada `analytics`:
+
+| Fonte | Como | Quando |
+|---|---|---|
+| API da equipe | `GET /data?schema=analytics&table=...` devolve a tabela em JSON (repositório `api_dataHack`, FastAPI na VPS) | Caminho principal: o dado vem direto do banco |
+| CSV de `src/outputs/` | Exportação da mesma camada, versionada no Git | Reserva automática, se a API não responder |
+
+`python src/06_prototipo_dashboard.py --api <endereço>` busca as tabelas na API e cai para os CSV, tabela por tabela, se ela falhar. A página gerada leva os dados embutidos e informa no rodapé de onde leu; depois de gerada, não depende da API nem do banco na hora do pitch.
+
+`python src/07_validar_api.py --api <endereço>` compara a API com os CSV, linha por linha, e grava `src/outputs/validacao_api.csv`. Na última execução as 12 tabelas com até 1.000 linhas bateram sem nenhuma diferença.
+
+Limite conhecido: a API devolve no máximo 1.000 linhas por chamada e não tem paginação. `p2_desistencia_curso`, com 25.332 linhas, não pode ser lida inteira por ela; o dashboard não usa essa tabela.
 
 O protótipo é uma página HTML com os dados embutidos, `src/dashboard/prototipo.html`, gerada por `python src/06_prototipo_dashboard.py`. Abre em qualquer navegador, sem banco e sem internet. As telas e a origem de cada uma estão em [plano_dashboard.md](plano_dashboard.md).

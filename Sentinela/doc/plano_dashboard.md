@@ -9,8 +9,9 @@ Gestores de ensino superior de Mato Grosso (secretarias, reitorias, coordenaçõ
 ## Como funciona
 
 - Uma tela por pergunta. Cada tela abre com a resposta em uma frase, com número; os gráficos embaixo sustentam a frase.
-- Lê os CSV de `src/outputs/`, que são a exportação da camada `analytics`. Não consulta o banco, então abre fora do laboratório.
-- Protótipo: `src/dashboard/prototipo.html`, gerado por `python src/06_prototipo_dashboard.py`.
+- Lê a camada `analytics` pela API da equipe e, se ela não responder, pelos CSV de `src/outputs/`, que são a exportação da mesma camada.
+- A página é gerada com os dados embutidos, então abre fora do laboratório, sem banco e sem internet.
+- Dashboard: `src/dashboard/prototipo.html`, gerado por `python src/06_prototipo_dashboard.py --api <endereço da API>`.
 
 ## Telas
 
