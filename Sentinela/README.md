@@ -11,13 +11,16 @@ PostgreSQL 18 · Python (pandas, openpyxl, psycopg) · Power BI. A justificativa
 1. Instalar Python 3 e PostgreSQL.
 2. `pip install -r requirements.txt`
 3. Copiar `.env.example` para `.env` e preencher o acesso ao banco.
-4. Baixar as bases para `Dados/` (a pasta não vai para o Git):
-   - Censo da Educação Superior (INEP), 2021 a 2024
-   - Indicadores de Trajetória (INEP), coortes 2015 a 2020
-   - CPC 2021–2023, Conceito Enade 2025 e IGC (INEP)
-   - Tabela 9514 do IBGE (SIDRA)
+4. Baixar as bases para `Dados/` (a pasta não vai para o Git), nestas subpastas:
+   - `Dados/INEP/censo_superior/` — Censo da Educação Superior, cursos e IES, 2021 a 2024
+   - `Dados/INEP/trajetoria/` — Indicadores de Trajetória, turmas de 2015 a 2020
+   - `Dados/INEP/indicadores_qualidade/` — CPC, Conceito Enade, IDD e IGC 2021–2023 e Enade Licenciaturas
+   - `Dados/IBGE/sidra/` — tabela 9514 (população por idade, municípios de MT)
 5. Criar as camadas: rodar `src/sql/00_schemas.sql` no banco.
-6. Exploração: `python src/01_exploracao_censo.py`
+6. Exploração (Fase 1), cada script grava o resultado em `src/outputs/`:
+   - `python src/01_exploracao_censo.py` — perfil dos CSV do Censo
+   - `python src/02_exploracao_planilhas.py` — abas e cabeçalhos das planilhas e do JSON
+   - `python src/03_exploracao_trajetoria.py` — perfil da Trajetória em MT e taxas de junção (leva alguns minutos)
 
 ## Estrutura
 

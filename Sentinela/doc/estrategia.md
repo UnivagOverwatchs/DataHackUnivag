@@ -23,9 +23,11 @@ Arquivo CSV, separador `;`, codificação latin-1, sem BOM, todas as linhas com 
 | 2016 | 54 MB | 200 | 92.866 | 2.529 | 1.057 | 52 | 79 |
 | 2020 | 200 MB | 200 | 344.691 | 9.773 | 2.404 | 92 | 142 |
 | 2021 | 258 MB | 200 | 444.786 | 12.278 | 2.737 | 94 | 157 |
+| 2022 | 332 MB | 200 | 573.019 | 15.059 | 3.234 | 96 | 165 |
+| 2023 | 393 MB | 202 | 671.610 | 17.022 | 3.631 | 93 | 168 |
 | 2024 | 453 MB | 223 | 720.349 | 18.315 | 3.890 | 104 | 170 |
 
-MT = `CO_UF = 51`. O layout muda: 200 colunas até 2021 e 223 em 2024, então a carga não pode depender da posição da coluna, só do nome.
+MT = `CO_UF = 51`. O layout muda: 200 colunas até 2022, 202 em 2023 e 223 em 2024, então a carga não pode depender da posição da coluna, só do nome. As perguntas usam 2021 a 2024; 2016 e 2020 ficam só como referência.
 
 ### Censo da Educação Superior — instituições
 
@@ -34,9 +36,49 @@ MT = `CO_UF = 51`. O layout muda: 200 colunas até 2021 e 223 em 2024, então a 
 | 2016 | 2.407 | 59 | 0 |
 | 2020 | 2.457 | 64 | 0 |
 | 2021 | 2.574 | 69 | 0 |
+| 2022 | 2.595 | 72 | 0 |
+| 2023 | 2.580 | 72 | 0 |
 | 2024 | 2.561 | 74 | 0 |
 
-Uma linha por instituição por ano; a chave é `CO_IES` + `NU_ANO_CENSO`. O nome do arquivo muda em 2024 (`MICRODADOS_ED_SUP_IES_2024`), e as colunas de local têm sufixo `_IES` (`CO_UF_IES`, `CO_MUNICIPIO_IES`).
+Uma linha por instituição por ano; a chave é `CO_IES` + `NU_ANO_CENSO`. O nome do arquivo muda a partir de 2022 (`MICRODADOS_ED_SUP_IES_AAAA`), e as colunas de local têm sufixo `_IES` (`CO_UF_IES`, `CO_MUNICIPIO_IES`).
+
+### Indicadores de Trajetória
+
+Planilha `.xlsx`, uma por turma de ingresso, de 28 a 43 MB. O título ocupa as linhas 1 a 8; os nomes técnicos das colunas estão na linha 9 e os dados começam na linha 10. São 31 colunas.
+
+| Turma | Linhas (Brasil) | Linhas MT | Cursos MT | IES MT | Municípios MT | Ingressantes MT | Cursos com menos de 10 ingressantes |
+|---|---|---|---|---|---|---|---|
+| 2015 | 281.431 | 5.150 | 515 | 47 | 30 | 41.918 | 15 |
+| 2016 | 263.179 | 5.157 | 573 | 49 | 30 | 45.453 | 16 |
+| 2017 | 247.201 | 4.864 | 608 | 51 | 33 | 44.959 | 30 |
+| 2018 | 230.210 | 4.361 | 623 | 53 | 31 | 43.223 | 28 |
+| 2019 | 206.809 | 3.876 | 646 | 60 | 34 | 41.881 | 36 |
+| 2020 | 174.241 | 3.105 | 621 | 60 | 31 | 28.985 | 47 |
+
+- Cada linha é curso × ano de ingresso × ano de referência. A chave `CO_CURSO` + `NU_ANO_INGRESSO` + `NU_ANO_REFERENCIA` não se repete em nenhum arquivo.
+- `QT_INGRESSANTE` se repete em todas as linhas do curso: somar sem escolher um ano de referência multiplica a turma por até 10.
+- Permanência + conclusão + desistência (`TAP + TCA + TDA`) fecha 100 em todas as linhas de MT; nenhuma taxa nula.
+- No recorte de MT só há cursos presenciais (nenhum EAD nas seis turmas). A P1 e a P2 respondem sobre o presencial.
+- A turma de 2020 tem 28.985 ingressantes contra cerca de 42 a 45 mil nas anteriores: ano atípico, a tratar à parte nas comparações.
+- São 784 cursos distintos de MT somando as seis turmas.
+
+### Indicadores de qualidade (CPC, Enade, IDD, IGC)
+
+Planilhas `.xlsx` com cabeçalho na linha 1, uma por ano.
+
+| Base | Linhas (Brasil) | Chave | Observação |
+|---|---|---|---|
+| CPC 2021 / 2022 / 2023 | 8.001 / 9.892 / 9.812 | `Código do Curso` | 40 colunas em 2021, 39 depois; a ordem das colunas muda. |
+| Conceito Enade 2021 / 2022 / 2023 | 8.000 / 9.896 / 9.815 | `Código do Curso` | Em 2021 a primeira aba é um aviso; os dados estão na segunda. |
+| Enade Licenciaturas (2025) | 4.951 | `Código do Curso` | Traz o percentual de concluintes no padrão de proficiência (P5). |
+| IDD 2021 / 2022 / 2023 | 8.000 / 9.896 / 9.815 | `Código do Curso` | — |
+| IGC 2021 / 2022 / 2023 | 2.014 / 2.023 / 2.101 | `Código da IES` | Uma linha por instituição; tem abas extras de apoio. |
+
+Os nomes das colunas vêm com espaço no começo e asteriscos no fim (`' Código do Curso**'`), e mudam entre os anos. A carga limpa o nome antes de usar. O recorte de MT nessas planilhas é pela coluna `Sigla da UF`.
+
+### IBGE — tabela 9514 (Censo 2022)
+
+JSON da API de agregados, 2,4 MB, população residente por idade para os municípios de MT. O município vem em `localidade.id` com 7 dígitos, igual ao `CO_MUNICIPIO` do Censo. A estrutura é aninhada (variável → classificações → séries), então precisa ser achatada antes de carregar.
 
 ### Achados que mudam a estratégia
 
@@ -46,11 +88,30 @@ Uma linha por instituição por ano; a chave é `CO_IES` + `NU_ANO_CENSO`. O nom
 4. **Quase todas as linhas de MT são EAD e privadas.** Em 2024: 17.489 linhas EAD contra 826 presenciais; 17.783 da rede privada contra 532 da pública. Contar linhas não mede oferta; a medida é a soma de `QT_MAT`, `QT_ING` e `QT_VG_TOTAL`.
 5. **A IES que oferta em MT nem sempre tem sede em MT.** Em 2024, 170 instituições têm curso em MT e só 74 têm sede no estado. O recorte de MT é feito pelo curso, não pela sede da instituição.
 
-### Pendências de fonte
+6. **O arquivo de 2022 não tem a linha EAD sem estado** (0 linhas, contra 7.948 em 2021 e 11.039 em 2023). A série de vagas EAD não é comparável nesse ano; a de matrículas é.
 
-- Faltam os Censos de 2022 e 2023 (a P3 pede 2021 a 2024). Os de 2016 e 2020 já baixados não entram nas perguntas.
-- Faltam baixar: Indicadores de Trajetória (coortes 2015 a 2020), CPC 2021–2023, Conceito Enade 2025, IGC e a tabela 9514 do IBGE.
-- A explorar na Trajetória: cabeçalho na linha 9; uma linha por curso e por ano de acompanhamento; conferir se permanência + conclusão + desistência (`TAP + TCA + TDA`) fecha 100.
+### Taxa de junção medida
+
+Base de partida: os 784 cursos de MT que aparecem na Trajetória.
+
+| Junção | Cursos com par | Taxa |
+|---|---|---|
+| Trajetória × Censo cursos 2021 | 715 de 784 | 91,2% |
+| Trajetória × Censo cursos 2022 | 703 de 784 | 89,7% |
+| Trajetória × Censo cursos 2023 | 677 de 784 | 86,4% |
+| Trajetória × Censo cursos 2024 | 646 de 784 | 82,4% |
+| Trajetória × Censo cursos 2021–2024 (qualquer ano) | 717 de 784 | 91,5% |
+| Trajetória × CPC 2021 | 140 de 784 | 17,9% |
+| Trajetória × CPC 2022 | 154 de 784 | 19,6% |
+| Trajetória × CPC 2023 | 234 de 784 | 29,8% |
+| Trajetória × CPC 2021–2023 (qualquer ano) | 528 de 784 | 67,3% |
+| Licenciaturas da Trajetória × Enade Licenciaturas | 75 de 129 | 58,1% |
+
+Leitura:
+
+- A taxa com o Censo cai ano a ano porque cursos das turmas antigas deixam de existir. Curso sem par no Censo é mantido na análise de trajetória e marcado como "sem dado de oferta".
+- Cada edição do CPC avalia só um grupo de áreas, por isso nenhuma passa de 30%. Juntando as três edições chega a 67,3%. A P4 vai informar que responde sobre 528 cursos, e não sobre todos.
+- Na P5, 75 das 129 licenciaturas da Trajetória têm resultado no Enade Licenciaturas; o resultado será apresentado com essa cobertura.
 
 ## 3. Camadas no banco
 
@@ -76,7 +137,7 @@ Uma linha por instituição por ano; a chave é `CO_IES` + `NU_ANO_CENSO`. O nom
 | Censo IES × IGC | `CO_IES` | — |
 | Censo cursos × IBGE | `CO_MUNICIPIO` (7 dígitos) | Só linhas presenciais têm vaga por município. |
 
-Todos os códigos são lidos como texto. A taxa de junção de cada linha da tabela será medida na Fase 2 e registrada aqui.
+Todos os códigos são lidos como texto. As taxas medidas estão na seção 2; os números saem de `src/03_exploracao_trajetoria.py` e ficam em `src/outputs/exploracao_juncoes.csv`.
 
 ## 6. Qualidade e regras de leitura
 

@@ -55,8 +55,8 @@ def perfil_ies(arquivo):
 
 
 def main():
-    linhas = [perfil_cursos(a) for a in sorted(DADOS.glob("MICRODADOS_CADASTRO_CURSOS_*.CSV"))]
-    linhas += [perfil_ies(a) for a in sorted(DADOS.glob("MICRODADOS_*IES_*.CSV"))]
+    linhas = [perfil_cursos(a) for a in sorted(DADOS.rglob("MICRODADOS_CADASTRO_CURSOS_*.CSV"))]
+    linhas += [perfil_ies(a) for a in sorted(DADOS.rglob("MICRODADOS_*IES_*.CSV"))]
     resultado = pd.DataFrame(linhas)
     SAIDA.parent.mkdir(parents=True, exist_ok=True)
     resultado.to_csv(SAIDA, index=False)
