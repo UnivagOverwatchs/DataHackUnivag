@@ -21,6 +21,7 @@ PostgreSQL 18 · Python (pandas, openpyxl, psycopg) · Power BI. A justificativa
    - `python src/01_exploracao_censo.py` — perfil dos CSV do Censo
    - `python src/02_exploracao_planilhas.py` — abas e cabeçalhos das planilhas e do JSON
    - `python src/03_exploracao_trajetoria.py` — perfil da Trajetória em MT e taxas de junção (leva alguns minutos)
+7. Carga no banco (Fase 2): `python src/04_carga_raw.py` — leva para o schema `raw` as bases de P1 a P5 (Trajetória, Censo de cursos 2021–2024, CPC e Enade Licenciaturas). Com `--so-mt` carrega só Mato Grosso; com `--simular` só lê e conta. Pode rodar de novo: cada arquivo é apagado e inserido na mesma transação.
 
 ## Estrutura
 
