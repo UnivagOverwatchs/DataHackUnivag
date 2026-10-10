@@ -4,3 +4,5 @@ psycopg[binary]
 sqlalchemy
 python-dotenv
 requests
+fastapi
+uvicorn[standard]

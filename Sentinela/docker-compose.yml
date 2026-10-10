@@ -1,0 +1,8 @@
+services:
+  sentinela-dashboard:
+    build: .
+    image: sentinela-dashboard:latest
+    container_name: sentinela-dashboard
+    ports:
+      - "8080:8080"   # a API de dados da equipe já usa a 8000
+    restart: unless-stopped

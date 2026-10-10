@@ -1,0 +1,7 @@
+Dados/
+.env
+.env.*
+**/__pycache__/
+src/outputs/
+doc/
+.git/
