@@ -80,7 +80,7 @@ svg text { fill: var(--text-2); font-size: 12px; }
 <body>
 <header>
   <h1>Rota do Diploma em Mato Grosso</h1>
-  <p>De cada 100 que entram numa graduação, quantos chegam ao diploma, e onde a rota se perde? · Equipe Sentinela · protótipo</p>
+  <p>De cada 100 que entram numa graduação, quantos chegam ao diploma, e onde a rota se perde? · Equipe Sentinela · dados públicos do INEP</p>
 </header>
 <nav id="abas"></nav>
 <main>
@@ -111,7 +111,7 @@ svg text { fill: var(--text-2); font-size: 12px; }
       <div class="painel"><h2>Cursos com maior desistência</h2><p class="sub">No 5º ano do curso</p><div class="rolagem" id="p2-maior"></div></div>
       <div class="painel"><h2>Cursos com menor desistência</h2><p class="sub">No 5º ano do curso</p><div class="rolagem" id="p2-menor"></div></div>
     </div>
-    <p class="nota">Só entram cursos com 10 ingressantes ou mais.</p>
+    <p class="nota">Por área entram cursos com 10 ingressantes ou mais. No ranking de cursos, só os com 50 ingressantes ou mais, somando as turmas: com poucos alunos, um curso chega a 100% e distorce a comparação.</p>
   </section>
 
   <section id="p3">
@@ -149,6 +149,11 @@ svg text { fill: var(--text-2); font-size: 12px; }
       <div id="p5-area"></div>
     </div>
   </section>
+  <section id="rec">
+    <div class="resposta"><b>O que fazer com isso</b><span>Seis recomendações para quem gere o ensino superior em Mato Grosso, cada uma apoiada em um número deste painel.</span></div>
+    <div class="duas" id="rec-lista"></div>
+    <p class="nota">Os dados são agregados por curso: mostram onde a perda se concentra e o que a acompanha, não a causa. Cada recomendação indica onde olhar primeiro.</p>
+  </section>
   <p class="nota" id="fonte"></p>
 </main>
 <div id="dica"></div>
@@ -172,7 +177,7 @@ document.addEventListener("mousemove", e => {
 });
 
 // abas
-const abas = [["p1", "P1 · A turma"], ["p2", "P2 · Onde se perde"], ["p3", "P3 · Rede e modalidade"], ["p4", "P4 · Qualidade"], ["p5", "P5 · Licenciaturas"]];
+const abas = [["p1", "P1 · A turma"], ["p2", "P2 · Onde se perde"], ["p3", "P3 · Rede e modalidade"], ["p4", "P4 · Qualidade"], ["p5", "P5 · Licenciaturas"], ["rec", "Recomendações"]];
 function abrir(id) {
   abas.forEach(([a]) => { $(a).classList.toggle("ativa", a === id); $("aba-" + a).setAttribute("aria-selected", a === id); });
   try { localStorage.setItem("aba", id); } catch (e) {}
@@ -267,10 +272,40 @@ barras("p5-funil", funil, {rotulo: l => l.etapa, valor: l => l.de_cada_100, dica
 barras("p5-area", D.p5_area.filter(l => l.area !== "Todas").sort((a, b) => b.pct - a.pct),
   {rotulo: l => l.area, valor: l => l.pct, cor: "var(--s3)", dica: l => `${l.area}: ${pct(l.pct)} de ${int(l.participantes)} participantes em ${l.cursos} cursos`});
 
+// ---------- Recomendações (os números vêm das mesmas tabelas das outras telas)
+(function recomendacoes() {
+  const priv = doAno.find(l => l.grupo === "Privada · EAD"), pub = doAno.find(l => l.grupo === "Pública · Presencial");
+  const enade = D.p4_correlacao.find(l => l.indicador.startsWith("Conceito Enade"));
+  const lic = D.p5_area.filter(l => l.area !== "Todas").sort((a, b) => a.pct - b.pct);
+  const itens = [
+    ["1 · Concentrar o apoio nos dois primeiros anos",
+     `A maior perda da turma de 2015 foi no ${pico.ano_do_curso}º ano: ${pct(pico.no_ano)} da turma. Somando o 1º e o 2º ano, ${pct(p1[1].desistiram)} já tinham desistido.`,
+     "Monitoria, acompanhamento de frequência e contato ativo com o aluno antes do fim do 2º ano."],
+    ["2 · Acompanhar de perto o ensino a distância da rede privada",
+     `É o maior grupo de matrículas (${int(priv.matriculas)} em ${ult}) e o de maior evasão anual: ${pct(priv.evasao)}, contra ${pct(pub.evasao)} na pública presencial.`,
+     "Publicar a evasão por curso e polo e cobrar plano de permanência dos cursos acima da mediana do grupo."],
+    ["3 · Definir prioridade por área",
+     `No 5º ano do curso, ${areas[0].area} (${pct(areas[0].pct)}) e ${areas[1].area} (${pct(areas[1].pct)}) têm a maior desistência; ${areas[areas.length - 1].area} tem a menor (${pct(areas[areas.length - 1].pct)}).`,
+     "Começar as ações de permanência pelas áreas do topo, com meta de redução por área."],
+    ["4 · Não usar a nota do curso como sinal de permanência",
+     `A nota do CPC tem associação fraca com a desistência (${cpc.r.toLocaleString("pt-BR")}). O Conceito Enade acompanha um pouco mais (${enade.r.toLocaleString("pt-BR")}), e a rede separa mais os cursos do que a nota.`,
+     "Acompanhar a desistência como indicador próprio, ao lado dos indicadores de qualidade."],
+    ["5 · Olhar o funil das licenciaturas inteiro",
+     `De cada 100 que entram, ${pct(funil[1].de_cada_100).replace("%", "")} desistem e ${pct(funil[3].de_cada_100).replace("%", "")} concluem. Entre os concluintes avaliados, a proficiência é menor em ${lic[0].area} (${pct(lic[0].pct)}) e ${lic[1].area} (${pct(lic[1].pct)}).`,
+     "Bolsas de permanência e reforço de formação nas áreas com menos concluintes proficientes."],
+    ["6 · Verificar o ano atípico antes de decidir",
+     atipicos.length ? `A evasão fugiu do padrão em: ${atipicos.join("; ")}.` : "Nenhum ano fugiu do padrão no período.",
+     "Conferir com as instituições se houve mudança de registro ou evento real antes de usar esse ano em metas."],
+  ];
+  $("rec-lista").innerHTML = itens.map(([t, dado, acao]) => `<div class="painel"><h2>${esc(t)}</h2><p class="sub">${esc(dado)}</p><p style="margin:0"><b>Ação:</b> ${esc(acao)}</p></div>`).join("");
+})();
+
 $("fonte").textContent = D.fonte || "";
 let inicial = "p1";
 try { inicial = localStorage.getItem("aba") || "p1"; } catch (e) {}
+if (location.hash.length > 1) inicial = location.hash.slice(1);  // link direto para uma tela: prototipo.html#p3
 abrir(abas.some(([a]) => a === inicial) ? inicial : "p1");
+if (location.hash) { history.replaceState(null, "", location.pathname); scrollTo(0, 0); }  // o # não deve rolar a página
 </script>
 </body>
 </html>

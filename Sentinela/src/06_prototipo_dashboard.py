@@ -48,9 +48,13 @@ def area_no_5o_ano():
     return sorted(linhas, key=lambda x: -x["pct"])
 
 
+MINIMO_RANKING = 50  # com poucas dezenas de ingressantes, um curso chega a 100% e distorce o ranking
+
+
 def ranking(coluna_posicao, quantos=10):
     # a ordem das linhas da API não é garantida: ordena aqui, com o curso como desempate
-    linhas = sorted(ler("p2_ranking_curso"), key=lambda l: (inteiro(l[coluna_posicao]), l["co_curso"]))[:quantos]
+    grandes = [l for l in ler("p2_ranking_curso") if inteiro(l["ingressantes"]) >= MINIMO_RANKING]
+    linhas = sorted(grandes, key=lambda l: (inteiro(l[coluna_posicao]), l["co_curso"]))[:quantos]
     return [{"curso": l["no_curso"].title(), "ies": l["no_ies"], "rede": l["rede"],
              "ingressantes": inteiro(l["ingressantes"]), "pct": num(l["pct_desistiram"])} for l in linhas]
 
