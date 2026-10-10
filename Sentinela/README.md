@@ -6,6 +6,21 @@ DataHack Univag 2026. De cada 100 que entram numa graduação em Mato Grosso, qu
 
 PostgreSQL 18 · Python (pandas, openpyxl, psycopg) · Power BI. A justificativa está em [doc/estrategia.md](doc/estrategia.md).
 
+## Dashboard no ar
+
+| Onde | Endereço | Como é servido |
+|---|---|---|
+| GitHub Pages | https://univagoverwatchs.github.io/DataHackUnivag/ | Página estática publicada a partir da branch `main` |
+| VPS pública | http://143.95.171.53:8080/ | Imagem Docker `ghcr.io/univagoverwatchs/sentinela-dashboard:latest` (FastAPI, `src/painel/main.py`) |
+
+Na VPS, o serviço também responde em `/health` (estado) e `/plano-b` (PDF com as telas). Conferido em 10/10/2026 às 17:14: as três rotas responderam, com o painel gerado às 16:53.
+
+A imagem é construída e testada pelo GitHub Actions (`.github/workflows/docker.yml`) a cada mudança no painel. Para subir em outro servidor com Docker:
+
+```bash
+docker run -d -p 8080:8080 --name sentinela-dashboard --restart unless-stopped ghcr.io/univagoverwatchs/sentinela-dashboard:latest
+```
+
 ## Como rodar do zero
 
 1. Instalar Python 3 e PostgreSQL.
