@@ -27,3 +27,17 @@ executado_em,tabela,perguntas,arquivo,colunas,linhas_lidas,linhas_carregadas,so_
 2026-10-10T11:45:03,raw.cpc,P4,cpc_2022.xlsx,39,9891,165,True,165,165
 2026-10-10T11:45:03,raw.cpc,P4,CPC_2023.xlsx,39,9812,238,True,238,238
 2026-10-10T11:45:03,raw.enade_licenciaturas,P5,conceito_enade_licenciaturas.xlsx,20,4950,97,True,97,97
+2026-10-10T14:45:52,raw.censo_ies,apoio (sede da IES),MICRODADOS_CADASTRO_IES_2021.CSV,84,2574,69,True,0,69
+2026-10-10T14:45:52,raw.censo_ies,apoio (sede da IES),MICRODADOS_ED_SUP_IES_2022.CSV,81,2595,72,True,0,72
+2026-10-10T14:45:52,raw.censo_ies,apoio (sede da IES),MICRODADOS_ED_SUP_IES_2023.CSV,84,2580,72,True,0,72
+2026-10-10T14:45:52,raw.censo_ies,apoio (sede da IES),MICRODADOS_ED_SUP_IES_2024.CSV,84,2561,74,True,0,74
+2026-10-10T14:45:52,raw.igc,apoio (qualidade da IES),IGC_2021.xlsx,18,2013,45,True,0,45
+2026-10-10T14:45:52,raw.igc,apoio (qualidade da IES),igc_2022.xlsx,18,2023,45,True,0,45
+2026-10-10T14:45:52,raw.igc,apoio (qualidade da IES),IGC_2023.xlsx,17,2101,51,True,0,51
+2026-10-10T14:45:52,raw.idd,apoio (P4),IDD_2021.xlsx,23,7999,155,True,0,155
+2026-10-10T14:45:52,raw.idd,apoio (P4),idd_2022.xlsx,21,9896,165,True,0,165
+2026-10-10T14:45:52,raw.idd,apoio (P4),IDD_2023.xlsx,21,9814,238,True,0,238
+2026-10-10T14:45:52,raw.enade,apoio (P4),conceito_enade_2021.xlsx,24,7999,155,True,0,155
+2026-10-10T14:45:52,raw.enade,apoio (P4),conceito_enade_2022.xlsx,23,9896,165,True,0,165
+2026-10-10T14:45:52,raw.enade,apoio (P4),conceito_enade_2023.xlsx,23,9814,238,True,0,238
+2026-10-10T14:45:52,raw.ibge_populacao,B1,tabela_9514_populacao_idade_municipios_MT_2022.json,12,18894,18894,True,0,18894
