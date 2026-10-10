@@ -47,6 +47,9 @@ Recorte: Mato Grosso. Os números saem de `src/outputs/` e são refeitos por `py
 | P3 — Pública × privada, presencial × EAD | Evasão anual em 2024: privada EAD 33,9%, privada presencial 18,8%, pública EAD 5,3%, pública presencial 4,7%. Ano atípico: 2023 na rede pública (15,0% no presencial e 18,1% no EAD, contra 3 a 9% nos outros anos). | `p3_rede_modalidade.csv` |
 | P4 — Qualidade retém? | Pouco: a correlação entre CPC e desistência é fraca (−0,10, em 497 cursos). A rede separa mais os cursos (privada 61,7% × pública 34,3%) do que a faixa do CPC. | `p4_curso.csv`, `p4_fatores.csv`, `p4_correlacao.csv` |
 | P5 — O funil das licenciaturas | Turmas de 2015 a 2020: de cada 100, 53,6 desistiram, 31,6 concluíram e 14,8 seguiam em 2024. No Enade 2025, 54,7% dos concluintes participantes atingiram o padrão de proficiência. | `p5_funil_turma.csv`, `p5_enade_area.csv`, `p5_funil_resumo.csv`, `p5_curso.csv` |
-| B1, B2 | A fazer | — |
+| B1 — Desertos de ensino superior | Em 2024, MT tem 82.215 vagas presenciais para 397.671 jovens de 18 a 24 anos: 20,7 vagas por 100 jovens. Dos 141 municípios, 101 não têm nenhuma vaga presencial; neles moram 90.017 jovens (22,6% do estado). Os maiores sem oferta são Sapezal, Peixoto de Azevedo e Poconé. | `b1_vagas_por_jovens.csv` |
+| B2 — Financiamento e permanência | Na rede privada, o FIES caiu de 3,3% das matrículas em 2021 para 1,4% em 2024, e o ProUni de 5,2% para 3,4%. Cursos com mais de 10% de alunos financiados têm evasão anual de 21,3%, contra 28,0% nos cursos sem financiados; a correlação é fraca (−0,07), então é associação, não causa. | `b2_financiamento_ano.csv`, `b2_financiamento_evasao.csv` |
+
+Os bônus B1 e B2 são calculados por `python src/08_bonus.py`, direto dos arquivos do Censo 2021–2024 e do IBGE (tabela 9514, Censo 2022); por falta de tempo, não passam pelas camadas do banco.
 
 Cobertura: a P4 usa os 497 cursos que têm CPC numérico e 10 ingressantes ou mais; a P5 cruza curso a curso apenas onde há 10 participantes ou mais no Enade.

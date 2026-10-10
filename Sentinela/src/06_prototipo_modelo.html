@@ -70,6 +70,9 @@ main { max-width: 1280px; padding: 16px 24px 40px; }
 .barra.clicavel { cursor: pointer; border-radius: 3px; }
 .barra.clicavel:hover { background: #f3f2f1; }
 .barra.apagada { opacity: .35; }
+#p4 .barra { margin: 8px 0; grid-template-columns: minmax(150px, 42%) 1fr 54px; }
+#p4 .trilho { height: 20px; }
+.trilho.centro { background: linear-gradient(to right, transparent calc(50% - 1px), var(--text-3) calc(50% - 1px), var(--text-3) calc(50% + 1px), transparent calc(50% + 1px)); }
 #p3-legenda span { cursor: pointer; user-select: none; }
 #p3-legenda span.off { opacity: .4; text-decoration: line-through; }
 table tr:hover td { background: #faf9f8; }
@@ -98,7 +101,18 @@ section > *, .cartoes, .painel, .resposta { margin-bottom: 0; }
 th, td { padding: 4px 8px; }
 .nota { margin: 0; }
 #fonte { margin: 4px 0 0; }
+.apagada { opacity: .35; }
+#rec { display: none !important; }  /* tela de recomendações retirada a pedido da equipe */
+#p2-busca { font: inherit; font-size: 13px; padding: 5px 10px; border: 1px solid var(--line); border-radius: 4px; margin: 0 0 8px; width: 100%; max-width: none; color: var(--text); background: var(--surface); }
+#p2-busca:focus { outline: 2px solid var(--s1); outline-offset: 1px; }
+.filtros { gap: 5px; margin-bottom: 8px; }
+.filtros .sep { margin-left: 10px; }
+.filtros .quebra { flex-basis: 100%; height: 0; }
+.filtros > span:not(.sep):not(.quebra) { min-width: 44px; }
+.chip { padding: 3px 10px; }
+.chip.limpar { margin-left: 10px; border-style: dashed; }
 @media print {
+  #p2-busca { display: none; }
   html, body { height: auto; }
   body { display: block; overflow: visible; }
   main, section, section.ativa, .grade2, .duas, .painel { display: block; overflow: visible; }
@@ -124,6 +138,7 @@ th, td { padding: 4px 8px; }
 <main>
   <section id="p1">
     <div class="resposta"><b>P1 · Quanto da turma fica pelo caminho?</b><span id="p1-texto"></span></div>
+    <div class="filtros" id="p1-filtros"></div>
     <div class="cartoes" id="p1-cartoes"></div>
     <div class="grade2"><div class="painel">
       <h2>Situação da turma de 2015, ano a ano</h2>
@@ -146,12 +161,15 @@ th, td { padding: 4px 8px; }
       <div id="p2-area"></div>
     </div>
     <div class="painel"><h2>Cursos</h2><p class="sub" id="p2-sub"></p>
+      <input id="p2-busca" type="search" list="p2-lista" placeholder="Digite ou escolha um curso ou instituição" aria-label="Buscar curso ou instituição">
+      <datalist id="p2-lista"></datalist>
       <div class="filtros" id="p2-filtros"></div><div class="rolagem" id="p2-cursos"></div></div></div>
     <p class="nota">Por área entram cursos com 10 ingressantes ou mais. No ranking de cursos, só os com 50 ingressantes ou mais, somando as turmas: com poucos alunos, um curso chega a 100% e distorce a comparação.</p>
   </section>
 
   <section id="p3">
     <div class="resposta"><b>P3 · Pública × privada, presencial × EAD</b><span id="p3-texto"></span></div>
+    <div class="cartoes" id="p3-cartoes"></div>
     <div class="painel cresce">
       <h2 id="p3-titulo">Evasão anual por rede e modalidade</h2>
       <p class="sub" id="p3-sub"></p>
@@ -167,7 +185,7 @@ th, td { padding: 4px 8px; }
     <div class="resposta"><b>P4 · Qualidade retém?</b><span id="p4-texto"></span></div>
     <div class="duas">
       <div class="painel"><h2>Desistência até o 5º ano, por característica do curso</h2><p class="sub">Cursos com CPC numérico e 10 ingressantes ou mais</p><div class="filtros" id="p4-filtros"></div><div id="p4-fatores"></div></div>
-      <div class="painel"><h2>Associação de cada indicador com a desistência</h2><p class="sub">Correlação entre −1 e 1 · perto de zero = pouca relação</p><div class="rolagem" id="p4-correlacao"></div>
+      <div class="painel"><h2>Associação de cada indicador com a desistência</h2><p class="sub">Correlação de cada nota com a desistência · vai de −1 a 1 · barra curta = pouca relação</p><div class="rolagem" id="p4-correlacao"></div>
         <p class="nota">Os dados são agregados por curso: os números mostram associação, não relação de causa.</p></div>
     </div>
   </section>
@@ -177,7 +195,7 @@ th, td { padding: 4px 8px; }
     <div class="grade2"><div class="painel">
       <h2>De cada 100 que entraram numa licenciatura</h2>
       <p class="sub">Turmas de 2015 a 2020, situação em 2024</p>
-      <div id="p5-funil"></div>
+      <div class="filtros" id="p5-filtros"></div><div id="p5-funil"></div>
       <p class="nota">O último degrau é uma estimativa: aplica aos concluintes a taxa de proficiência do Enade 2025, que foi medida em outras pessoas.</p>
     </div>
     <div class="painel">
@@ -214,7 +232,7 @@ document.addEventListener("mousemove", e => {
 });
 
 // abas
-const abas = [["p1", "P1 · A turma"], ["p2", "P2 · Onde se perde"], ["p3", "P3 · Rede e modalidade"], ["p4", "P4 · Qualidade"], ["p5", "P5 · Licenciaturas"], ["rec", "Recomendações"]];
+const abas = [["p1", "P1 · A turma"], ["p2", "P2 · Onde se perde"], ["p3", "P3 · Rede e modalidade"], ["p4", "P4 · Qualidade"], ["p5", "P5 · Licenciaturas"]];
 function abrir(id) {
   abas.forEach(([a]) => { $(a).classList.toggle("ativa", a === id); $("aba-" + a).setAttribute("aria-selected", a === id); });
   try { localStorage.setItem("aba", id); } catch (e) {}
@@ -247,29 +265,55 @@ $("p1-empilhada").innerHTML = p1.map(l => `<div class="barra">
   </span><span class="val">${pct(l.desistiram)}</span></div>`).join("") + `<p class="nota">Número à direita: desistência acumulada.</p>`;
 barras("p1-ano", p1, {rotulo: l => `${l.ano} · ${l.ano_do_curso}º ano`, valor: l => l.no_ano, max: 20, cor: "var(--s2)"});
 
+let anoP1 = fim.ano;
+function desenharP1() {
+  const i = p1.findIndex(l => l.ano === anoP1), l = p1[i];
+  $("p1-filtros").innerHTML = `<span>Situação da turma até o ano</span>` + p1.map(x => `<button class="chip" data-ano="${x.ano}" aria-pressed="${x.ano === anoP1}">${x.ano}</button>`).join("");
+  $("p1-cartoes").innerHTML = [
+    [int(l.ingressantes), "ingressantes em 2015"], [pct(l.desistiram), "desistiram até " + l.ano],
+    [pct(l.concluiram), "concluíram até " + l.ano], [pct(l.seguem), "seguiam no curso em " + l.ano + " (" + l.ano_do_curso + "º ano)"],
+  ].map(([n, r]) => `<div class="cartao"><div class="n">${n}</div><div class="r">${r}</div></div>`).join("");
+  ["p1-empilhada", "p1-ano"].forEach(id => document.querySelectorAll("#" + id + " .barra").forEach((el, k) => el.classList.toggle("apagada", k > i)));
+}
+$("p1").addEventListener("click", e => { const c = e.target.closest("[data-ano]"); if (c) { anoP1 = c.dataset.ano; desenharP1(); } });
+desenharP1();
+
 // ---------- P2
 const areas = D.p2_area;
 $("p2-texto").textContent = `No 5º ano do curso, a área com maior desistência é ${areas[0].area} (${pct(areas[0].pct)}) e a com menor é ${areas[areas.length - 1].area} (${pct(areas[areas.length - 1].pct)}).`;
-const fP2 = {area: null, rede: "Todas", ordem: "maior"};
+const fP2 = {area: null, rede: "Todas", grau: "Todos", ordem: "maior", busca: ""};
 function desenharP2() {
   $("p2-area").innerHTML = areas.map(l => `<div class="barra clicavel${fP2.area && fP2.area !== l.area ? " apagada" : ""}" data-area="${esc(l.area)}" data-dica="${esc(l.area)}: ${pct(l.pct)} de ${int(l.ingressantes)} ingressantes · clique para filtrar os cursos">
     <span class="rot">${esc(l.area)}</span><span class="trilho"><span style="width:${l.pct}%;background:var(--s1)"></span></span><span class="val">${pct(l.pct)}</span></div>`).join("");
-  const cursos = D.p2_cursos.filter(c => (!fP2.area || c.area === fP2.area) && (fP2.rede === "Todas" || c.rede === fP2.rede));
+  const cursos = D.p2_cursos.filter(c => (!fP2.area || c.area === fP2.area) && (fP2.rede === "Todas" || c.rede === fP2.rede) &&
+    (fP2.grau === "Todos" || c.grau === fP2.grau) && (!fP2.busca || (c.curso + " " + c.ies).toLowerCase().includes(fP2.busca)));
   cursos.sort((a, b) => (fP2.ordem === "maior" ? b.pct - a.pct : a.pct - b.pct) || b.ingressantes - a.ingressantes);
   const chip = (grupo, valor, rotulo) => `<button class="chip" data-grupo="${grupo}" data-valor="${esc(valor)}" aria-pressed="${fP2[grupo] === valor}">${esc(rotulo)}</button>`;
-  $("p2-filtros").innerHTML = "Rede: " + ["Todas", "Pública", "Privada"].map(r => chip("rede", r, r)).join("") +
-    " &nbsp; Ordem: " + chip("ordem", "maior", "Maior desistência") + chip("ordem", "menor", "Menor desistência") +
-    (fP2.area ? ` &nbsp; Área: <button class="chip" data-grupo="area" data-valor="" aria-pressed="true">${esc(fP2.area)} ✕</button>` : "");
-  $("p2-sub").textContent = `${int(cursos.length)} cursos no filtro · mostrando os 8 primeiros · desistência acumulada até o 5º ano do curso`;
+  const ativo = fP2.area || fP2.rede !== "Todas" || fP2.grau !== "Todos" || fP2.busca;
+  $("p2-filtros").innerHTML = `<span>Rede</span>` + ["Todas", "Pública", "Privada"].map(r => chip("rede", r, r)).join("") +
+    `<span class="sep">Grau</span>` + ["Todos", "Bacharelado", "Licenciatura", "Tecnológico"].map(g => chip("grau", g, g)).join("") +
+    `<span class="quebra"></span><span>Ordem</span>` + chip("ordem", "maior", "Maior desistência") + chip("ordem", "menor", "Menor desistência") +
+    (fP2.area ? `<span class="sep">Área</span><button class="chip" data-grupo="area" data-valor="" aria-pressed="true">${esc(fP2.area)} ✕</button>` : "") +
+    (ativo ? `<button class="chip limpar" data-limpar>Limpar filtros</button>` : "");
+  const ing = cursos.reduce((s, c) => s + c.ingressantes, 0), des = cursos.reduce((s, c) => s + c.ingressantes * c.pct / 100, 0);
+  $("p2-sub").textContent = cursos.length
+    ? `${int(cursos.length)} cursos no filtro · ${int(ing)} ingressantes · desistência média de ${pct(100 * des / ing)} até o 5º ano · mostrando os ${Math.min(8, cursos.length)} primeiros`
+    : "Nenhum curso com esse filtro";
   $("p2-cursos").innerHTML = `<table><tr><th>Curso</th><th>Instituição</th><th>Rede</th><th>Grau</th><th class="num">Ingressantes</th><th class="num">Desistiram</th></tr>` +
     cursos.slice(0, 8).map(l => `<tr><td>${esc(l.curso)}</td><td>${esc(l.ies)}</td><td>${l.rede}</td><td>${l.grau}</td><td class="num">${int(l.ingressantes)}</td><td class="num">${pct(l.pct)}</td></tr>`).join("") + "</table>";
 }
 $("p2").addEventListener("click", e => {
   const barra = e.target.closest("[data-area]");
   if (barra) { fP2.area = fP2.area === barra.dataset.area ? null : barra.dataset.area; desenharP2(); return; }
+  if (e.target.closest("[data-limpar]")) {
+    Object.assign(fP2, {area: null, rede: "Todas", grau: "Todos", busca: ""}); $("p2-busca").value = ""; desenharP2(); return;
+  }
   const c = e.target.closest(".chip");
   if (c) { fP2[c.dataset.grupo] = c.dataset.valor || null; desenharP2(); }
 });
+$("p2-busca").addEventListener("input", e => { fP2.busca = e.target.value.trim().toLowerCase(); desenharP2(); });
+const ordenar = lista => [...new Set(lista)].sort((a, b) => a.localeCompare(b, "pt"));
+$("p2-lista").innerHTML = ordenar(D.p2_cursos.map(c => c.curso)).concat(ordenar(D.p2_cursos.map(c => c.ies))).map(v => `<option value="${esc(v)}"></option>`).join("");
 desenharP2();
 
 // ---------- P3
@@ -280,12 +324,19 @@ const ult = anos[anos.length - 1], doAno = D.p3.filter(l => l.ano === ult);
 const atipicos = D.p3.filter(l => l.atipico).map(l => `${l.grupo} em ${l.ano} (${pct(l.evasao)})`);
 $("p3-texto").textContent = `Evasão anual em ${ult}: ` + grupos.map(g => `${g} ${pct(doAno.find(l => l.grupo === g).evasao)}`).join(", ") + ". " +
   (atipicos.length ? "Ano atípico: " + atipicos.join("; ") + "." : "Nenhum ano atípico.");
-const p3 = {metrica: "evasao", off: new Set()};
+const p3 = {metrica: "evasao", off: new Set(), ano: ult};
 function desenharP3() {
   const mat = p3.metrica === "matriculas", val = l => mat ? l.matriculas : l.evasao, fmt = v => mat ? int(v) : pct(v);
   $("p3-titulo").textContent = (mat ? "Matrículas" : "Evasão anual") + " por rede e modalidade";
   $("p3-sub").textContent = (mat ? "Alunos matriculados no ano" : "Desvinculados no ano sobre alunos com vínculo no ano") + " · Censo 2021 a 2024 · clique na legenda para ligar ou desligar uma linha";
-  $("p3-filtros").innerHTML = "Medida: " + [["evasao", "Evasão anual"], ["matriculas", "Matrículas"]].map(([v, t]) => `<button class="chip" data-metrica="${v}" aria-pressed="${p3.metrica === v}">${t}</button>`).join("");
+  const redeP3 = ["Pública", "Privada"].find(r => grupos.every(g => g.startsWith(r) !== p3.off.has(g))) || (p3.off.size ? "" : "Todas");
+  $("p3-filtros").innerHTML = `<span>Medida</span>` + [["evasao", "Evasão anual"], ["matriculas", "Matrículas"]].map(([v, t]) => `<button class="chip" data-metrica="${v}" aria-pressed="${p3.metrica === v}">${t}</button>`).join("") +
+    `<span class="sep">Rede</span>` + ["Todas", "Pública", "Privada"].map(r => `<button class="chip" data-rede="${r}" aria-pressed="${r === redeP3}">${r}</button>`).join("") +
+    `<span class="sep">Ano</span>` + anos.map(a => `<button class="chip" data-anop3="${a}" aria-pressed="${a === p3.ano}">${a}</button>`).join("");
+  $("p3-cartoes").innerHTML = grupos.map((g, i) => {
+    const l = D.p3.find(z => z.grupo === g && z.ano === p3.ano);
+    return `<div class="cartao${p3.off.has(g) ? " apagada" : ""}" style="border-top:3px solid ${cores[i]}"><div class="n">${fmt(val(l))}</div><div class="r">${g} · ${p3.ano}${l.atipico && !mat ? " · ano atípico" : ""}</div></div>`;
+  }).join("");
   $("p3-legenda").innerHTML = grupos.map((g, i) => `<span data-grupo="${g}" class="${p3.off.has(g) ? "off" : ""}"><i style="background:${cores[i]}"></i>${g}</span>`).join("");
   const W = 720, H = 300, m = {e: mat ? 62 : 40, d: 70, t: 12, b: 28};
   const maxY = mat ? Math.ceil(Math.max(...D.p3.map(l => l.matriculas)) / 20000) * 20000 : 40, passo = maxY / 4;
@@ -293,6 +344,7 @@ function desenharP3() {
   let s = `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="${mat ? "Matrículas" : "Evasão anual"} por rede e modalidade">`;
   for (let v = 0; v <= maxY; v += passo) s += `<line x1="${m.e}" x2="${W - m.d}" y1="${y(v)}" y2="${y(v)}" stroke="var(--line)"/><text x="${m.e - 6}" y="${y(v) + 4}" text-anchor="end">${mat ? int(v) : v + "%"}</text>`;
   anos.forEach(a => s += `<text x="${x(a)}" y="${H - 8}" text-anchor="middle">${a}</text>`);
+  s += `<line x1="${x(p3.ano)}" x2="${x(p3.ano)}" y1="${m.t}" y2="${H - m.b}" stroke="var(--text-3)" stroke-dasharray="4 4"/>`;
   const fins = [];
   grupos.forEach((g, i) => {
     if (p3.off.has(g)) return;
@@ -308,6 +360,10 @@ function desenharP3() {
   $("p3-linha").innerHTML = s + "</svg>";
 }
 $("p3").addEventListener("click", e => {
+  const r = e.target.closest("[data-rede]");
+  if (r) { p3.off = new Set(r.dataset.rede === "Todas" ? [] : grupos.filter(g => !g.startsWith(r.dataset.rede))); desenharP3(); return; }
+  const a = e.target.closest("[data-anop3]");
+  if (a) { p3.ano = +a.dataset.anop3; desenharP3(); return; }
   const c = e.target.closest("[data-metrica]");
   if (c) { p3.metrica = c.dataset.metrica; desenharP3(); return; }
   const g = e.target.closest("#p3-legenda [data-grupo]");
@@ -326,17 +382,34 @@ function desenharP4() {
   $("p4-filtros").innerHTML = "Ver por: " + ["Rede", "Faixa do CPC", "Grau", "Área"].map(f => `<button class="chip" data-fator="${f}" aria-pressed="${f === fatorP4}">${f}</button>`).join("");
   let ls = D.p4_fatores.filter(l => l.fator === fatorP4);
   if (fatorP4 === "Faixa do CPC") ls = ls.slice().sort((a, b) => a.categoria.localeCompare(b.categoria));
-  barras("p4-fatores", ls, {rotulo: l => (l.fator === "Faixa do CPC" ? "CPC faixa " : "") + l.categoria, valor: l => l.pct, dica: l => `${l.categoria}: ${pct(l.pct)} em ${int(l.cursos)} cursos`});
+  barras("p4-fatores", ls, {rotulo: l => (l.fator === "Faixa do CPC" ? "CPC faixa " : "") + l.categoria + " · " + int(l.cursos) + " cursos", valor: l => l.pct, dica: l => `${l.categoria}: ${pct(l.pct)} em ${int(l.cursos)} cursos`});
 }
 $("p4").addEventListener("click", e => { const c = e.target.closest("[data-fator]"); if (c) { fatorP4 = c.dataset.fator; desenharP4(); } });
 desenharP4();
-$("p4-correlacao").innerHTML = `<table><tr><th>Indicador</th><th class="num">Cursos</th><th class="num">Correlação</th></tr>` +
-  D.p4_correlacao.map(l => `<tr><td>${esc(l.indicador)}</td><td class="num">${int(l.cursos)}</td><td class="num">${l.r.toLocaleString("pt-BR", {minimumFractionDigits: 2})}</td></tr>`).join("") + "</table>";
+$("p4-correlacao").innerHTML = D.p4_correlacao.map(l => {
+  const w = Math.min(50, Math.abs(l.r) / 0.4 * 50), neg = l.r < 0;
+  return `<div class="barra" data-dica="${esc(l.indicador)}: correlação de ${l.r.toLocaleString("pt-BR")} em ${int(l.cursos)} cursos">
+    <span class="rot">${esc(l.indicador)}</span>
+    <span class="trilho centro"><span style="margin-left:${neg ? 50 - w : 50}%;width:${w}%;background:${neg ? "var(--s1)" : "var(--s2)"};border-radius:${neg ? "4px 0 0 4px" : "0 4px 4px 0"}"></span></span>
+    <span class="val">${l.r.toLocaleString("pt-BR", {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span></div>`;
+}).join("") + `<div class="legenda" style="margin-top:10px"><span><i style="background:var(--s1)"></i>Nota maior acompanha desistência menor</span><span><i style="background:var(--s2)"></i>Nota maior acompanha desistência maior</span></div>`;
 
 // ---------- P5
 const funil = D.p5_funil, todas = D.p5_area.find(l => l.area === "Todas");
 $("p5-texto").textContent = `De cada 100 que entraram numa licenciatura (turmas de 2015 a 2020), ${pct(funil[1].de_cada_100).replace("%", "")} desistiram, ${pct(funil[3].de_cada_100).replace("%", "")} concluíram e ${pct(funil[2].de_cada_100).replace("%", "")} seguiam no curso em 2024. No Enade 2025, ${pct(todas.pct)} dos concluintes participantes atingiram o padrão de proficiência.`;
-barras("p5-funil", funil, {rotulo: l => l.etapa, valor: l => l.de_cada_100, dica: l => `${l.etapa}: ${pct(l.de_cada_100).replace("%", "")} de cada 100`});
+let turmaP5 = "Todas";
+function desenharP5() {
+  const turmas = ["Todas", ...D.p5_turma.map(t => t.turma).filter(t => t !== "Todas").sort()];
+  $("p5-filtros").innerHTML = `<span>Turma</span>` + turmas.map(t => `<button class="chip" data-turma="${t}" aria-pressed="${t === turmaP5}">${t}</button>`).join("");
+  const t = D.p5_turma.find(x => x.turma === turmaP5);
+  const linhas = [
+    {etapa: `Entraram (${turmaP5 === "Todas" ? "turmas de 2015 a 2020" : "turma de " + turmaP5}) · ${int(t.ingressantes)} alunos`, v: 100},
+    {etapa: "Desistiram até 2024", v: t.desistiram}, {etapa: "Seguiam no curso em 2024", v: t.seguem}, {etapa: "Concluíram até 2024", v: t.concluiram}];
+  if (turmaP5 === "Todas" && funil[4]) linhas.push({etapa: funil[4].etapa, v: funil[4].de_cada_100});
+  barras("p5-funil", linhas, {rotulo: l => l.etapa, valor: l => l.v, dica: l => `${l.etapa}: ${pct(l.v).replace("%", "")} de cada 100`});
+}
+$("p5").addEventListener("click", e => { const c = e.target.closest("[data-turma]"); if (c) { turmaP5 = c.dataset.turma; desenharP5(); } });
+desenharP5();
 barras("p5-area", D.p5_area.filter(l => l.area !== "Todas").sort((a, b) => b.pct - a.pct),
   {rotulo: l => l.area, valor: l => l.pct, cor: "var(--s3)", dica: l => `${l.area}: ${pct(l.pct)} de ${int(l.participantes)} participantes em ${l.cursos} cursos`});
 

@@ -83,6 +83,9 @@ def main():
                                 key=lambda x: x["r"]),
         "p5_funil": [{"etapa": l["etapa"], "de_cada_100": num(l["de_cada_100"])}
                      for l in sorted(ler("p5_funil_resumo"), key=lambda l: inteiro(l["ordem"]))],
+        "p5_turma": [{"turma": l["turma"], "ingressantes": inteiro(l["ingressantes"]), "desistiram": num(l["pct_desistiram"]),
+                      "concluiram": num(l["pct_concluiram"]), "seguem": num(l["pct_seguem_no_curso"])}
+                     for l in ler("p5_funil_turma")],
         "p5_area": [{"area": l["area_de_avaliacao"].title(), "cursos": inteiro(l["cursos"]),
                      "participantes": inteiro(l["concluintes_participantes"]), "pct": num(l["pct_proficientes"])}
                     for l in ler("p5_enade_area")],
