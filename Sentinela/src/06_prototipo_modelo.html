@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rota do Diploma — Sentinela</title>
+<style>
+:root {
+  color-scheme: light;
+  --page: #f4f3f0; --surface: #fcfcfb; --line: #e3e1db;
+  --text: #0b0b0b; --text-2: #52514e; --text-3: #7b7a75;
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #eda100;
+  --warn: #b45309;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --page: #121211; --surface: #1a1a19; --line: #33332f;
+    --text: #ffffff; --text-2: #c3c2b7; --text-3: #8f8e86;
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500;
+    --warn: #f0a54a;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #121211; --surface: #1a1a19; --line: #33332f;
+  --text: #ffffff; --text-2: #c3c2b7; --text-3: #8f8e86;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500;
+  --warn: #f0a54a;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--text); font: 15px/1.45 system-ui, "Segoe UI", sans-serif; }
+header { padding: 20px 16px 0; max-width: 1100px; margin: 0 auto; }
+h1 { font-size: 22px; margin: 0 0 2px; }
+header p { margin: 0; color: var(--text-2); }
+nav { display: flex; gap: 6px; flex-wrap: wrap; padding: 14px 16px 0; max-width: 1100px; margin: 0 auto; }
+nav button { font: inherit; padding: 7px 12px; border: 1px solid var(--line); background: var(--surface); color: var(--text-2); border-radius: 6px; cursor: pointer; }
+nav button[aria-selected="true"] { color: var(--text); border-color: var(--text-2); font-weight: 600; }
+main { max-width: 1100px; margin: 0 auto; padding: 14px 16px 40px; }
+section { display: none; }
+section.ativa { display: block; }
+.resposta { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--s1); border-radius: 6px; padding: 12px 14px; margin-bottom: 14px; }
+.resposta b { display: block; font-size: 12px; text-transform: uppercase; letter-spacing: .04em; color: var(--text-3); margin-bottom: 2px; }
+.cartoes { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; margin-bottom: 14px; }
+.cartao { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 12px 14px; }
+.cartao .n { font-size: 26px; font-weight: 650; font-variant-numeric: tabular-nums; }
+.cartao .r { color: var(--text-2); font-size: 13px; }
+.painel { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 14px; margin-bottom: 14px; }
+.painel h2 { font-size: 15px; margin: 0 0 2px; }
+.painel .sub { color: var(--text-2); font-size: 13px; margin: 0 0 10px; }
+.duas { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 14px; }
+.legenda { display: flex; gap: 14px; flex-wrap: wrap; font-size: 13px; color: var(--text-2); margin-bottom: 8px; }
+.legenda i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 5px; }
+.barra { display: grid; grid-template-columns: minmax(110px, 34%) 1fr 54px; gap: 8px; align-items: center; margin: 3px 0; font-size: 13px; }
+.barra .rot { color: var(--text-2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.barra .trilho { height: 14px; display: flex; gap: 2px; }
+.barra .trilho span { height: 100%; border-radius: 0 4px 4px 0; min-width: 1px; }
+.barra .trilho.empilhada span { border-radius: 0; }
+.barra .val { text-align: right; font-variant-numeric: tabular-nums; }
+.grupo { font-size: 12px; text-transform: uppercase; letter-spacing: .04em; color: var(--text-3); margin: 10px 0 2px; }
+.rolagem { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 13px; }
+th, td { text-align: left; padding: 5px 8px; border-bottom: 1px solid var(--line); }
+th { color: var(--text-3); font-weight: 600; }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+svg text { fill: var(--text-2); font-size: 12px; }
+.nota { color: var(--text-3); font-size: 12px; margin: 8px 0 0; }
+.aviso { color: var(--warn); font-weight: 600; }
+#dica { position: fixed; pointer-events: none; background: var(--text); color: var(--page); padding: 5px 8px; border-radius: 4px; font-size: 12px; display: none; z-index: 5; max-width: 260px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Rota do Diploma em Mato Grosso</h1>
+  <p>De cada 100 que entram numa graduação, quantos chegam ao diploma, e onde a rota se perde? · Equipe Sentinela · protótipo</p>
+</header>
+<nav id="abas"></nav>
+<main>
+  <section id="p1">
+    <div class="resposta"><b>P1 · Quanto da turma fica pelo caminho?</b><span id="p1-texto"></span></div>
+    <div class="cartoes" id="p1-cartoes"></div>
+    <div class="painel">
+      <h2>Situação da turma de 2015, ano a ano</h2>
+      <p class="sub">Cursos presenciais de MT · percentual sobre quem entrou</p>
+      <div class="legenda"><span><i style="background:var(--s1)"></i>Seguem no curso</span><span><i style="background:var(--s3)"></i>Concluíram</span><span><i style="background:var(--s2)"></i>Desistiram</span></div>
+      <div id="p1-empilhada"></div>
+    </div>
+    <div class="painel">
+      <h2>Desistência em cada ano do curso</h2>
+      <p class="sub">Percentual da turma que desistiu naquele ano</p>
+      <div id="p1-ano"></div>
+    </div>
+  </section>
+
+  <section id="p2">
+    <div class="resposta"><b>P2 · Onde a rota mais se perde?</b><span id="p2-texto"></span></div>
+    <div class="painel">
+      <h2>Desistência acumulada até o 5º ano do curso, por área</h2>
+      <p class="sub">Turmas de 2015 a 2020 somadas · o 5º ano é o último que as seis turmas alcançam</p>
+      <div id="p2-area"></div>
+    </div>
+    <div class="duas">
+      <div class="painel"><h2>Cursos com maior desistência</h2><p class="sub">No 5º ano do curso</p><div class="rolagem" id="p2-maior"></div></div>
+      <div class="painel"><h2>Cursos com menor desistência</h2><p class="sub">No 5º ano do curso</p><div class="rolagem" id="p2-menor"></div></div>
+    </div>
+    <p class="nota">Só entram cursos com 10 ingressantes ou mais.</p>
+  </section>
+
+  <section id="p3">
+    <div class="resposta"><b>P3 · Pública × privada, presencial × EAD</b><span id="p3-texto"></span></div>
+    <div class="painel">
+      <h2>Evasão anual por rede e modalidade</h2>
+      <p class="sub">Desvinculados no ano sobre alunos com vínculo no ano · Censo 2021 a 2024</p>
+      <div class="legenda" id="p3-legenda"></div>
+      <div id="p3-linha"></div>
+      <p class="nota"><span class="aviso">◆ Ano atípico:</span> evasão de pelo menos o dobro da mediana do grupo.</p>
+    </div>
+    <div class="painel"><h2>Matrículas por rede e modalidade</h2><p class="sub">Tabela dos mesmos dados</p><div class="rolagem" id="p3-tabela"></div></div>
+  </section>
+
+  <section id="p4">
+    <div class="resposta"><b>P4 · Qualidade retém?</b><span id="p4-texto"></span></div>
+    <div class="duas">
+      <div class="painel"><h2>Desistência até o 5º ano, por característica do curso</h2><p class="sub">Cursos com CPC numérico e 10 ingressantes ou mais</p><div id="p4-fatores"></div></div>
+      <div class="painel"><h2>Associação de cada indicador com a desistência</h2><p class="sub">Correlação entre −1 e 1 · perto de zero = pouca relação</p><div class="rolagem" id="p4-correlacao"></div>
+        <p class="nota">Os dados são agregados por curso: os números mostram associação, não relação de causa.</p></div>
+    </div>
+  </section>
+
+  <section id="p5">
+    <div class="resposta"><b>P5 · O funil das licenciaturas</b><span id="p5-texto"></span></div>
+    <div class="painel">
+      <h2>De cada 100 que entraram numa licenciatura</h2>
+      <p class="sub">Turmas de 2015 a 2020, situação em 2024</p>
+      <div id="p5-funil"></div>
+      <p class="nota">O último degrau é uma estimativa: aplica aos concluintes a taxa de proficiência do Enade 2025, que foi medida em outras pessoas.</p>
+    </div>
+    <div class="painel">
+      <h2>Concluintes no padrão de proficiência, por área</h2>
+      <p class="sub">Enade das Licenciaturas 2025 · áreas com 10 participantes ou mais</p>
+      <div id="p5-area"></div>
+    </div>
+  </section>
+</main>
+<div id="dica"></div>
+
+<script>
+const D = __DADOS__;
+const $ = id => document.getElementById(id);
+const pct = v => v == null ? "—" : v.toLocaleString("pt-BR", {minimumFractionDigits: 1, maximumFractionDigits: 1}) + "%";
+const int = v => v.toLocaleString("pt-BR");
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
+
+// dica ao passar o mouse: qualquer elemento com data-dica
+const dica = $("dica");
+document.addEventListener("mousemove", e => {
+  const alvo = e.target.closest("[data-dica]");
+  if (!alvo) { dica.style.display = "none"; return; }
+  dica.textContent = alvo.dataset.dica;
+  dica.style.display = "block";
+  dica.style.left = Math.min(e.clientX + 12, innerWidth - 270) + "px";
+  dica.style.top = (e.clientY + 14) + "px";
+});
+
+// abas
+const abas = [["p1", "P1 · A turma"], ["p2", "P2 · Onde se perde"], ["p3", "P3 · Rede e modalidade"], ["p4", "P4 · Qualidade"], ["p5", "P5 · Licenciaturas"]];
+function abrir(id) {
+  abas.forEach(([a]) => { $(a).classList.toggle("ativa", a === id); $("aba-" + a).setAttribute("aria-selected", a === id); });
+  try { localStorage.setItem("aba", id); } catch (e) {}
+}
+$("abas").innerHTML = abas.map(([a, t]) => `<button id="aba-${a}" role="tab">${t}</button>`).join("");
+abas.forEach(([a]) => $("aba-" + a).onclick = () => abrir(a));
+
+// barras horizontais de uma série
+function barras(el, linhas, {rotulo, valor, max = 100, cor = "var(--s1)", dica}) {
+  $(el).innerHTML = linhas.map(l => l.grupo ? `<div class="grupo">${esc(l.grupo)}</div>` :
+    `<div class="barra" data-dica="${esc(dica ? dica(l) : rotulo(l) + ": " + pct(valor(l)))}">
+       <span class="rot">${esc(rotulo(l))}</span>
+       <span class="trilho"><span style="width:${Math.max(0, valor(l)) / max * 100}%;background:${cor}"></span></span>
+       <span class="val">${pct(valor(l))}</span></div>`).join("");
+}
+
+// ---------- P1
+const p1 = D.p1, fim = p1[p1.length - 1], pico = p1.find(l => l.maior) || p1[0];
+$("p1-texto").textContent = `Da turma que entrou em 2015 no presencial (${int(fim.ingressantes)} alunos), até ${fim.ano} de cada 100: ${pct(fim.desistiram).replace("%", "")} desistiram, ${pct(fim.concluiram).replace("%", "")} concluíram e ${pct(fim.seguem).replace("%", "")} seguiam no curso. A maior perda foi no ${pico.ano_do_curso}º ano (${pico.ano}): ${pct(pico.no_ano)} da turma.`;
+$("p1-cartoes").innerHTML = [
+  [int(fim.ingressantes), "ingressantes em 2015"], [pct(fim.desistiram), "desistiram até " + fim.ano],
+  [pct(fim.concluiram), "concluíram até " + fim.ano], [pico.ano_do_curso + "º ano", "ano de maior perda (" + pct(pico.no_ano) + ")"],
+].map(([n, r]) => `<div class="cartao"><div class="n">${n}</div><div class="r">${r}</div></div>`).join("");
+$("p1-empilhada").innerHTML = p1.map(l => `<div class="barra">
+  <span class="rot">${l.ano} · ${l.ano_do_curso}º ano</span>
+  <span class="trilho empilhada">
+    <span style="width:${l.seguem}%;background:var(--s1)" data-dica="${l.ano}: ${pct(l.seguem)} seguem no curso"></span>
+    <span style="width:${l.concluiram}%;background:var(--s3)" data-dica="${l.ano}: ${pct(l.concluiram)} concluíram"></span>
+    <span style="width:${l.desistiram}%;background:var(--s2)" data-dica="${l.ano}: ${pct(l.desistiram)} desistiram"></span>
+  </span><span class="val">${pct(l.desistiram)}</span></div>`).join("") + `<p class="nota">Número à direita: desistência acumulada.</p>`;
+barras("p1-ano", p1, {rotulo: l => `${l.ano} · ${l.ano_do_curso}º ano`, valor: l => l.no_ano, max: 20, cor: "var(--s2)"});
+
+// ---------- P2
+const areas = D.p2_area;
+$("p2-texto").textContent = `No 5º ano do curso, a área com maior desistência é ${areas[0].area} (${pct(areas[0].pct)}) e a com menor é ${areas[areas.length - 1].area} (${pct(areas[areas.length - 1].pct)}).`;
+barras("p2-area", areas, {rotulo: l => l.area, valor: l => l.pct, dica: l => `${l.area}: ${pct(l.pct)} de ${int(l.ingressantes)} ingressantes`});
+const tabelaCursos = linhas => `<table><tr><th>Curso</th><th>Instituição</th><th>Rede</th><th class="num">Ingressantes</th><th class="num">Desistiram</th></tr>` +
+  linhas.map(l => `<tr><td>${esc(l.curso)}</td><td>${esc(l.ies)}</td><td>${l.rede}</td><td class="num">${int(l.ingressantes)}</td><td class="num">${pct(l.pct)}</td></tr>`).join("") + "</table>";
+$("p2-maior").innerHTML = tabelaCursos(D.p2_maior);
+$("p2-menor").innerHTML = tabelaCursos(D.p2_menor);
+
+// ---------- P3
+const grupos = ["Privada · EAD", "Privada · Presencial", "Pública · EAD", "Pública · Presencial"];
+const cores = ["var(--s1)", "var(--s2)", "var(--s3)", "var(--s4)"];
+const anos = [...new Set(D.p3.map(l => l.ano))].sort();
+const ult = anos[anos.length - 1], doAno = D.p3.filter(l => l.ano === ult);
+const atipicos = D.p3.filter(l => l.atipico).map(l => `${l.grupo} em ${l.ano} (${pct(l.evasao)})`);
+$("p3-texto").textContent = `Evasão anual em ${ult}: ` + grupos.map(g => `${g} ${pct(doAno.find(l => l.grupo === g).evasao)}`).join(", ") + ". " +
+  (atipicos.length ? "Ano atípico: " + atipicos.join("; ") + "." : "Nenhum ano atípico.");
+$("p3-legenda").innerHTML = grupos.map((g, i) => `<span><i style="background:${cores[i]}"></i>${g}</span>`).join("");
+(function linha() {
+  const W = 720, H = 300, m = {e: 40, d: 60, t: 12, b: 28}, maxY = 40;
+  const x = a => m.e + (anos.indexOf(a) / (anos.length - 1)) * (W - m.e - m.d), y = v => m.t + (1 - v / maxY) * (H - m.t - m.b);
+  let s = `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Evasão anual por rede e modalidade">`;
+  for (let v = 0; v <= maxY; v += 10) s += `<line x1="${m.e}" x2="${W - m.d}" y1="${y(v)}" y2="${y(v)}" stroke="var(--line)"/><text x="${m.e - 6}" y="${y(v) + 4}" text-anchor="end">${v}%</text>`;
+  anos.forEach(a => s += `<text x="${x(a)}" y="${H - 8}" text-anchor="middle">${a}</text>`);
+  const fins = [];
+  grupos.forEach((g, i) => {
+    const pts = D.p3.filter(l => l.grupo === g).sort((a, b) => a.ano - b.ano);
+    s += `<polyline fill="none" stroke="${cores[i]}" stroke-width="2" points="${pts.map(p => x(p.ano) + "," + y(p.evasao)).join(" ")}"/>`;
+    pts.forEach(p => s += p.atipico
+      ? `<rect x="${x(p.ano) - 6}" y="${y(p.evasao) - 6}" width="12" height="12" transform="rotate(45 ${x(p.ano)} ${y(p.evasao)})" fill="${cores[i]}" stroke="var(--surface)" stroke-width="2" data-dica="${g}, ${p.ano}: ${pct(p.evasao)} (ano atípico)"/>`
+      : `<circle cx="${x(p.ano)}" cy="${y(p.evasao)}" r="5" fill="${cores[i]}" stroke="var(--surface)" stroke-width="2" data-dica="${g}, ${p.ano}: ${pct(p.evasao)}"/>`);
+    fins.push({v: pts[pts.length - 1].evasao, yy: y(pts[pts.length - 1].evasao)});
+  });
+  fins.sort((a, b) => a.yy - b.yy).forEach((f, i, v) => { if (i && f.yy - v[i - 1].yy < 14) f.yy = v[i - 1].yy + 14; });
+  fins.forEach(f => s += `<text x="${W - m.d + 10}" y="${f.yy + 4}">${pct(f.v)}</text>`);
+  $("p3-linha").innerHTML = s + "</svg>";
+})();
+$("p3-tabela").innerHTML = `<table><tr><th>Rede e modalidade</th>${anos.map(a => `<th class="num">Matrículas ${a}</th><th class="num">Evasão ${a}</th>`).join("")}</tr>` +
+  grupos.map(g => `<tr><td>${g}</td>${anos.map(a => { const l = D.p3.find(z => z.grupo === g && z.ano === a); return `<td class="num">${int(l.matriculas)}</td><td class="num">${pct(l.evasao)}${l.atipico ? " ◆" : ""}</td>`; }).join("")}</tr>`).join("") + "</table>";
+
+// ---------- P4
+const cpc = D.p4_correlacao.find(l => l.indicador.startsWith("CPC")), rede = D.p4_fatores.filter(l => l.fator === "Rede");
+$("p4-texto").textContent = `Pouco. A associação entre a nota do CPC e a desistência é fraca (correlação de ${cpc.r.toLocaleString("pt-BR")} em ${int(cpc.cursos)} cursos). A rede separa mais os cursos: ` +
+  rede.map(l => `${l.categoria.toLowerCase()} ${pct(l.pct)}`).join(" × ") + ".";
+const fatores = [];
+["Rede", "Faixa do CPC", "Grau", "Área"].forEach(f => {
+  fatores.push({grupo: f});
+  let ls = D.p4_fatores.filter(l => l.fator === f);
+  if (f === "Faixa do CPC") ls = ls.slice().sort((a, b) => a.categoria.localeCompare(b.categoria));
+  fatores.push(...ls);
+});
+barras("p4-fatores", fatores, {rotulo: l => (l.fator === "Faixa do CPC" ? "CPC faixa " : "") + l.categoria, valor: l => l.pct, dica: l => `${l.categoria}: ${pct(l.pct)} em ${int(l.cursos)} cursos`});
+$("p4-correlacao").innerHTML = `<table><tr><th>Indicador</th><th class="num">Cursos</th><th class="num">Correlação</th></tr>` +
+  D.p4_correlacao.map(l => `<tr><td>${esc(l.indicador)}</td><td class="num">${int(l.cursos)}</td><td class="num">${l.r.toLocaleString("pt-BR", {minimumFractionDigits: 2})}</td></tr>`).join("") + "</table>";
+
+// ---------- P5
+const funil = D.p5_funil, todas = D.p5_area.find(l => l.area === "Todas");
+$("p5-texto").textContent = `De cada 100 que entraram numa licenciatura (turmas de 2015 a 2020), ${pct(funil[1].de_cada_100).replace("%", "")} desistiram, ${pct(funil[3].de_cada_100).replace("%", "")} concluíram e ${pct(funil[2].de_cada_100).replace("%", "")} seguiam no curso em 2024. No Enade 2025, ${pct(todas.pct)} dos concluintes participantes atingiram o padrão de proficiência.`;
+barras("p5-funil", funil, {rotulo: l => l.etapa, valor: l => l.de_cada_100, dica: l => `${l.etapa}: ${pct(l.de_cada_100).replace("%", "")} de cada 100`});
+barras("p5-area", D.p5_area.filter(l => l.area !== "Todas").sort((a, b) => b.pct - a.pct),
+  {rotulo: l => l.area, valor: l => l.pct, cor: "var(--s3)", dica: l => `${l.area}: ${pct(l.pct)} de ${int(l.participantes)} participantes em ${l.cursos} cursos`});
+
+let inicial = "p1";
+try { inicial = localStorage.getItem("aba") || "p1"; } catch (e) {}
+abrir(abas.some(([a]) => a === inicial) ? inicial : "p1");
+</script>
+</body>
+</html>
