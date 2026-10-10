@@ -51,12 +51,11 @@ def area_no_5o_ano():
 MINIMO_RANKING = 50  # com poucas dezenas de ingressantes, um curso chega a 100% e distorce o ranking
 
 
-def ranking(coluna_posicao, quantos=10):
-    # a ordem das linhas da API não é garantida: ordena aqui, com o curso como desempate
-    grandes = [l for l in ler("p2_ranking_curso") if inteiro(l["ingressantes"]) >= MINIMO_RANKING]
-    linhas = sorted(grandes, key=lambda l: (inteiro(l[coluna_posicao]), l["co_curso"]))[:quantos]
-    return [{"curso": l["no_curso"].title(), "ies": l["no_ies"], "rede": l["rede"],
-             "ingressantes": inteiro(l["ingressantes"]), "pct": num(l["pct_desistiram"])} for l in linhas]
+def cursos_ranking():
+    """Cursos do ranking da P2 com ingressantes suficientes; o filtro e a ordem ficam por conta da tela."""
+    return [{"curso": l["no_curso"].title(), "ies": l["no_ies"], "rede": l["rede"], "grau": l["grau"],
+             "area": l["no_area_geral"], "ingressantes": inteiro(l["ingressantes"]), "pct": num(l["pct_desistiram"])}
+            for l in ler("p2_ranking_curso") if inteiro(l["ingressantes"]) >= MINIMO_RANKING]
 
 
 def main():
@@ -72,8 +71,7 @@ def main():
                        "no_ano": num(l["pct_desistiram_no_ano"]), "maior": l["ano_de_maior_perda"] == "True"}
                       for l in ler("p1_coorte_2015")), key=lambda x: x["ano_do_curso"]),
         "p2_area": area_no_5o_ano(),
-        "p2_maior": ranking("posicao_maior_desistencia"),
-        "p2_menor": ranking("posicao_menor_desistencia"),
+        "p2_cursos": cursos_ranking(),
         "p3": [{"ano": inteiro(l["ano"]), "grupo": f'{l["rede"]} · {l["modalidade"]}',
                 "evasao": num(l["pct_evasao"]), "matriculas": inteiro(l["matriculas"]),
                 "atipico": l["ano_atipico"] == "True"} for l in ler("p3_rede_modalidade")],
