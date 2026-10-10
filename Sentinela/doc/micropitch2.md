@@ -12,7 +12,7 @@ Fase 2 · ingestão, transformação e protótipo · 3 minutos de fala + 2 de pe
 
 **2. Ingestão e idempotência (40 s)** — abrir `src/outputs/carga_raw_contagem.csv`.
 
-- Quatro fontes carregadas por código: Trajetória, Censo de cursos, CPC e Enade Licenciaturas.
+- Nove fontes carregadas por código: as quatro das perguntas (Trajetória, Censo de cursos, CPC e Enade Licenciaturas), quatro de apoio (Censo de instituições, IGC, IDD e Conceito Enade) e a população do IBGE.
 - Cada arquivo roda em uma transação que apaga as linhas daquele arquivo e insere de novo.
 - Prova: a segunda execução encontrou 89.842 linhas no banco e terminou com 89.842.
 
@@ -35,7 +35,7 @@ Fase 2 · ingestão, transformação e protótipo · 3 minutos de fala + 2 de pe
 | Pergunta | Resposta |
 |---|---|
 | Por que `raw` só tem Mato Grosso? | Tempo e espaço: o Censo completo passa de 1 GB. O script aceita carregar o Brasil inteiro; rodamos com a opção de MT. O filtro é pelo código da UF, sem outra transformação. |
-| E as outras bases (IES, IGC, IDD, IBGE)? | Estão baixadas e exploradas. Não entraram porque as cinco perguntas obrigatórias não precisam delas. O IBGE entra na Fase 3, para o bônus B1. |
+| E as outras bases (IES, IGC, IDD, IBGE)? | Estão carregadas na `raw` (20.438 linhas). Ainda não têm `staging`, porque as cinco perguntas obrigatórias não precisam delas. O IBGE é a base do bônus B1, na Fase 3. |
 | Qual a taxa de junção? | Trajetória com Censo 2021–2024: 91,5% (717 de 784 cursos). Com o CPC: 67,3%, porque cada edição avalia só um grupo de áreas. Na P4 entram 497 cursos com nota numérica e 10 ingressantes ou mais. |
 | Como sabem que não duplicou? | A contagem antes e depois de cada carga fica gravada, e a checagem compara `raw` com `staging`. |
 | Por que 2023 aparece como atípico na rede pública? | A evasão foi de 15,0% no presencial e 18,1% no EAD, contra 3% a 9% nos outros anos. Marcamos como atípico pela regra do dobro da mediana; a causa não está nos dados e não afirmamos uma. |
